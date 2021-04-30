@@ -9,9 +9,9 @@ import './index.css';
 function App() {
   return (
     <Router>
-      <div class="flex flex-col h-screen">
+      <div className="flex flex-col h-screen">
         <Header />
-        <div class="container mx-auto mb-auto px-8">
+        <div className="container mx-auto mb-auto px-8">
           <Switch>
             <Route exact path="/">
               <Home />
