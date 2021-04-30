@@ -10,19 +10,19 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/about">
+        <Route exact path="/about">
           <About />
         </Route>
-        <Route path="/profile">
+        <Route exact path="/profile">
           <Profile />
         </Route>
-        <Route path="/projects">
+        <Route exact path="/projects">
           <Projects />
         </Route>
-        <Route path="/project/:id">
+        <Route exact path="/project/:id">
           <Project />
         </Route>
       </Switch>
