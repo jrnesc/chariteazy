@@ -4,6 +4,8 @@ import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Projects from "./pages/Projects";
 import Project from "./pages/Project";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import './index.css';
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
             </Route>
           </Switch>
         </div>
+        <Footer />
       </div>
     </Router>
   );
