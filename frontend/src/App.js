@@ -9,23 +9,27 @@ import './index.css';
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/about">
-          <About />
-        </Route>
-        <Route exact path="/profile">
-          <Profile />
-        </Route>
-        <Route exact path="/projects">
-          <Projects />
-        </Route>
-        <Route exact path="/project/:id">
-          <Project />
-        </Route>
-      </Switch>
+      <div class="flex flex-col h-screen">
+        <div class="container mx-auto mb-auto px-8">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/about">
+              <About />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
+            </Route>
+            <Route exact path="/projects">
+              <Projects />
+            </Route>
+            <Route exact path="/project/:id">
+              <Project />
+            </Route>
+          </Switch>
+        </div>
+      </div>
     </Router>
   );
 }
