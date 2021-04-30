@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         'blu-light':'#305AFF',
         'blu-dark': '#1947E5',
+        'teel': '#00C6AE',
       }
     },
   },
