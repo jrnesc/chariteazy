@@ -1,13 +1,15 @@
 import React from 'react';
+import CategoryTitle from '../components/CategoryTitle';
 import Dropdown from '../components/Dropdown';
-import ProjectCategory from '../components/ProjectCategory';
+import TopProjectCategory from '../components/TopProjectCategory';
 
 const Projects = () => {
     return (
         <div>
             <Dropdown color='white' />
-            <ProjectCategory title='most popular' info='these are popular charities'/>
-            <ProjectCategory title='most recent' info='these are recent charities' />            
+            <CategoryTitle categoryTitle='Categories' info='Please select categories from dropdown' />
+            <TopProjectCategory title='most popular' />
+            <TopProjectCategory title='most recent' />            
         </div>
     )
 }
