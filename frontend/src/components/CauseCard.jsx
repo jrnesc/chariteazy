@@ -1,6 +1,6 @@
 const CauseCard = () => {
   return (
-    <div className="overflow-hidden rounded-lg border border-black cursor-pointer m-auto" style="box-shadow: 0 5px 0px 0px black">
+    <div className="overflow-hidden rounded-lg border border-black cursor-pointer m-auto" style={{boxShadow: "0 5px 0px 0px black"}}>
       <img
         alt="photo"
         src="./images/yellow.jpeg"
