@@ -1,8 +1,8 @@
 const Header = () => {
   return (
     <>
-      <nav className="py-4 px-8 bg-blu-light">
-        <div className="flex items-center justify-between h-15">
+      <nav className="py-4 px-8 bg-blu-light mb-5 md:mb-0">
+        <div className="flex items-center justify-between h-14">
           <div>Logo</div>
           <div className="rounded-xl overflow-hidden border border-black bg-white hidden sm:block">
             <ul className="flex items-baseline">
