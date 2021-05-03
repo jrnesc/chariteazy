@@ -26,7 +26,7 @@ function App() {
       <div className="flex flex-col h-screen">
         <Header onLoginClick={openModal} />
         <AccountModal IsOpen={IsOpen} onClose={closeModal} />
-        <div className="container mx-auto mb-auto px-10">
+        <div className="container mx-auto mb-auto px-10">     
           <Switch>
             <Route exact path="/">
               <Home />
@@ -40,7 +40,7 @@ function App() {
             <Route exact path="/projects">
               <Projects />
             </Route>
-            <Route exact path="/project/:id">
+            <Route exact path="/project">
               <Project />
             </Route>
           </Switch>
