@@ -27,7 +27,7 @@ const Dropdown = ({color}) => {
           <div className="relative inline-flex">
             <button
               className={
-                "text-black font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 " +
+                "text-3xl font-extrabold text-black sm:text-2xl px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 " +
                 bgColor
               }
               type="button"
@@ -62,7 +62,7 @@ const Dropdown = ({color}) => {
               <a
                 href="#category1"
                 className={
-                  "block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
+                  "block block px-4 py-2 text-md font-extrabold text-black sm:text-md hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
                   (color === "white" ? " text-blueGray-700" : "text-white")
                 }
                 onClick={e => e.preventDefault()}
@@ -73,7 +73,7 @@ const Dropdown = ({color}) => {
                 <a
                   href="#category2"
                   className={
-                    "block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
+                    "block block px-4 py-2 text-md font-extrabold text-black sm:text-md hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
                     (color === "white" ? " text-blueGray-700" : "text-white")
                   }
                   onClick={e => e.preventDefault()}
@@ -84,7 +84,7 @@ const Dropdown = ({color}) => {
                 <a
                   href="#category 3"
                   className={
-                  "block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
+                  "block block px-4 py-2 text-md font-extrabold text-black sm:text-md hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" +
                   (color === "white" ? " text-blueGray-700" : "text-white")
                   }
                   onClick={e => e.preventDefault()}
