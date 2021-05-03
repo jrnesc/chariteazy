@@ -1,4 +1,4 @@
-const Header = () => {
+const Header = (props) => {
   return (
     <>
       <nav className="py-4 px-8 bg-blu-light mb-5 md:mb-0">
@@ -20,12 +20,15 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <button className="py-2 px-5 bg-black hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg">
+          <button
+            className="py-2 px-5 bg-black hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+            onClick={props.onLoginClick}
+          >
             Login
           </button>
         </div>
       </nav>
-      <div className="fixed bottom-0 w-full sm:hidden">
+      <div className="fixed bottom-0 w-full z-10 sm:hidden">
         <div className="rounded-t-xl overflow-hidden border border-black bg-white">
           <ul className="flex items-baseline justify-between">
             <li className="rounded-t-lg py-2 px-5 bg-teel">
