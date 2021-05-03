@@ -3,15 +3,15 @@ const CauseCard = () => {
     <div className="overflow-hidden rounded-lg border border-black cursor-pointer m-auto" style={{boxShadow: "0 5px 0px 0px black"}}>
       <img
         alt="photo"
-        src="./images/yellow.jpeg"
+        src="./images/kente-cloth.jpeg"
         className="h-25 w-full object-cover border-b border-black"
       />
       <div className="bg-white w-full p-4">
         <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
           DJ Night Hawa
         </h2>
-        <p className="text-gray-400 font-light text-md">
-          <span>
+        <p className="flex items-center text-gray-400 font-light text-md">
+          <span className="mr-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -35,8 +35,8 @@ const CauseCard = () => {
           </span>
           <span> Birmingham </span>
         </p>
-        <p className="text-gray-400 font-light text-md">
-          <span>
+        <p className="flex items-center text-gray-400 font-light text-md">
+          <span className="mr-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
