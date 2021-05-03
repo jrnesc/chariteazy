@@ -37,7 +37,7 @@ const Dropdown = () => {
             }}
           >
             Select category
-            <span className="absolute block h-full w-8 top-0 right-0 rounded-r-lg bg-yellow-300 ml-5">
+            <span className="absolute block h-full w-8 top-0 right-0 rounded-r-lg bg-yello ml-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="absolute block h-4 w-4 top-1/3 left-1/4"
