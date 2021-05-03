@@ -1,7 +1,16 @@
 import React from "react";
+import CauseCard from "../components/CauseCard";
 import HorizontalCardList from "../components/HorizontalCardList";
 
 const Home = () => {
+
+  const cards = [
+    <CauseCard />,
+    <CauseCard />,
+    <CauseCard />,
+    <CauseCard />,
+  ]
+
   return (
     <>
       <div
@@ -96,7 +105,7 @@ const Home = () => {
           Trending Causes
         </h2>
         <div className="mt-12">
-          <HorizontalCardList cards={[1, 2, 3, 4, 5]} />
+          <HorizontalCardList cards={cards} />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-12 mb-0 md:-mb-14">
