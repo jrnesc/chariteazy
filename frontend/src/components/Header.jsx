@@ -5,7 +5,7 @@ const Header = (props) => {
     <>
       <nav className="py-4 px-8 bg-blu-light mb-5 md:mb-0">
         <div className="flex items-center justify-between h-14">
-          <div>Logo</div>
+          <img src="images/logo.png" className="h-16 w-16" />
           <div className="rounded-xl overflow-hidden border border-black bg-white hidden sm:block">
             <ul className="flex items-baseline">
               <li className="py-2 px-5">
