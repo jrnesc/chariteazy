@@ -3,7 +3,6 @@ import Home from "./pages/Home";
 // import About from "./pages/About";
 // import Profile from "./pages/Profile";
 import Projects from "./pages/Projects";
-import ProjectsCategory from "./pages/ProjectsCategory";
 // import Project from "./pages/Project";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -27,9 +26,6 @@ function App() {
             </Route> */}
             <Route exact path="/projects">
               <Projects />
-            </Route>
-            <Route exact path="/projectscategory">
-              <ProjectsCategory />
             </Route>
             {/* <Route exact path="/project/:id">
               <Project />
