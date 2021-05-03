@@ -32,9 +32,9 @@ const HorizontalCardList = (props) => {
           style={{ scrollBehavior: "smooth" }}
           ref={horizontalCardsEl}
         >
-          {props.cards.map((card) => (
-            <CauseCard />
-          ))}
+          {props.cards.map((card) => {
+            return card
+          })}
         </div>
         <button className="px-5 hidden md:block" onClick={() => scroll(200)}>
           <svg
