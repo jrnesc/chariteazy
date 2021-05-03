@@ -1,12 +1,10 @@
 import React from 'react'
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
 import VoteProgressBar from '../components/VoteProgressBar';
 import Header from "../components/Header"
 
 const Project = () => {
 
-    // const handleDragStart = (e) => e.preventDefault();
+    
 
     const responsive = {
         0: { items: 1 },
@@ -97,13 +95,7 @@ const Project = () => {
             </div>
 
             <h3 className="text-center p-10 text-3xl">Supporters</h3>
-            <AliceCarousel
-                mouseTracking
-                items={items}
-                responsive={responsive}
-                controlsStrategy="alternate"
-                className=""
-            />
+            
         </div>
     )
 }
