@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const Header = (props) => {
   return (
     <>
@@ -6,11 +8,13 @@ const Header = (props) => {
           <div>Logo</div>
           <div className="rounded-xl overflow-hidden border border-black bg-white hidden sm:block">
             <ul className="flex items-baseline">
-              <li className="rounded-lg py-2 px-5 bg-teel">
-                <a>Menu</a>
-              </li>
               <li className="py-2 px-5">
-                <a>Menu</a>
+                <NavLink
+                  to={{ pathname: "/projects" }}
+                  activeClassName="font-bold text-teel"
+                >
+                  Projects
+                </NavLink>
               </li>
               <li className="py-2 px-5">
                 <a>Menu</a>
@@ -31,11 +35,13 @@ const Header = (props) => {
       <div className="fixed bottom-0 w-full z-10 sm:hidden">
         <div className="rounded-t-xl overflow-hidden border border-black bg-white">
           <ul className="flex items-baseline justify-between">
-            <li className="rounded-t-lg py-2 px-5 bg-teel">
-              <a>Menu</a>
-            </li>
             <li className="py-2 px-5">
-              <a>Menu</a>
+              <NavLink
+                to={{ pathname: "/projects" }}
+                activeClassName="font-bold text-teel"
+              >
+                Projects
+              </NavLink>
             </li>
             <li className="py-2 px-5">
               <a>Menu</a>
