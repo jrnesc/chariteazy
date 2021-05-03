@@ -8,12 +8,12 @@ const VoteProgressBar = (props) => {
     }
 
     return (
-        <div class="bg-yellow-400 rounded-full m-5 mx-auto">
+        <div className="flex items-center bg-yellow-400 rounded-full m-5 mx-auto w-4/5">
             <div
-                class="h-full bg-indigo-600 rounded-full text-right py-5 px-7 relative"
+                className="h-full bg-indigo-600 rounded-full text-right py-5 px-7 "
                 style={insideBarStyle}
             >
-                <span class="text-white font-bold">
+                <span className="text-white font-bold">
                     {`${completed}%`}
                 </span>
             </div>

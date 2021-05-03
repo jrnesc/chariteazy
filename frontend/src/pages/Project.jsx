@@ -2,6 +2,7 @@ import React from 'react'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import VoteProgressBar from '../components/VoteProgressBar';
+import Header from "../components/Header"
 
 const Project = () => {
 
@@ -14,52 +15,94 @@ const Project = () => {
     };
 
     const items = [
-        <div class="text-center">1</div>,
-        <div class="text-center">2</div>,
-        <div class="text-center">3</div>,
-        <div class="text-center">4</div>,
-        <div class="text-center">5</div>,
+        <div className="item w-1/3">
+            <img
+                src="images/hands.png" alt="hands"
+            />
+        </div>,
+        <div className="item w-1/3">
+            <img
+                src="images/hands.png" alt="hands"
+            />
+        </div>,
+        <div className="item w-1/3">
+            <img
+                src="images/hands.png" alt="hands"
+            />
+        </div>,
+        
     ];
 
     const testData = [
-        {completed: 90},
+        { completed: 70 },
     ]
 
     return (
         <div>
-            <h1 class="text-center p-5">Specific Project</h1>
+            <Header />
+            <h1 className="text-center p-10 text-4xl">Specific Project Name</h1>
 
-            <div class="grid gap-4 grid-cols-3 justify-items-center">
-                <div><img class="w-30 h-40" src="images/hands.png" alt="hands" /></div>
-                <div>
-                    <h3>This is specific project specific project blah yeah blah blah blah blah blah</h3>
+            <div className="grid gap-4 grid-cols-3 justify-items-center box-border border-4">
+                <div className="flex items-center px-2 py-5">
+                    <img
+                        className="w-30 h-40"
+                        src="images/hands.png"
+                        alt="hands"
+                    />
+                </div>
+                <div className="flex items-center">
+                    <h3 className="text-center">This is specific project specific project blah yeah blah blah blah blah blah</h3>
                 </div>
             </div>
 
-            <div>
+            <div className="p-10">
+                <h3 className="text-center text-3xl">Vote Progress</h3>
                 {testData.map((item, idx) => (
-                    <VoteProgressBar 
+                    <VoteProgressBar
                         key={idx}
                         completed={item.completed}
                     />)
                 )}
             </div>
 
-            <div class="grid gap-4 grid-cols-2 justify-items-center">
-                <div>
+            <div className="grid gap-4 grid-cols-2 justify-items-center box-border border-4">
+                <div className="flex items-center px-2 py-5">
                     <h3>This is specific project specific project blah yeah blah blah blah blah blah</h3>
                 </div>
-                <div><img class="w-30 h-40" src="images/hands.png" alt="hands" /></div>
+                <div className="flex items-center px-2 py-5">
+                    <img
+                        className="w-30 h-40"
+                        src="images/hands.png"
+                        alt="hands"
+                    />
+                </div>
+
+                <div className="flex items-center px-2 py-5">
+                    <img 
+                        className="w-30 h-40"
+                        src="images/hands.png"
+                        alt="hands"
+                    />
+                </div>
+                <div className="flex items-center px-2 py-5">
+                    <h3>This is specific project specific project blah yeah blah blah blah blah blah</h3>
+                </div>
+
+                <div className="flex items-center px-2 py-5">
+                    <h3>This is specific project specific project blah yeah blah blah blah blah blah</h3>
+                </div>
+                <div className="flex items-center px-2 py-5">
+                    <img className="w-30 h-40" src="images/hands.png" alt="hands" />
+                </div>
             </div>
 
-
-            <h3 class="text-center p-5">Supporters</h3>
+            <h3 className="text-center p-10 text-3xl">Supporters</h3>
             <AliceCarousel
                 mouseTracking
                 items={items}
                 responsive={responsive}
                 controlsStrategy="alternate"
-                class="justify-items-center"
+                className=""
             />
         </div>
     )
