@@ -17,6 +17,11 @@ const Dropdown = () => {
     setDropdownPopoverShow(false);
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log("click");
+  }
+
   return (
     <>
       <div className="flex justify-end">
@@ -60,7 +65,7 @@ const Dropdown = () => {
             <a
               href="#category1"
               className="block block px-4 py-2 text-md hover:bg-gray-100 hover:text-gray-900"
-              onClick={(e) => e.preventDefault()}
+              onClick={handleClick}
             >
               Category 1
             </a>
@@ -68,7 +73,7 @@ const Dropdown = () => {
             <a
               href="#category2"
               className="block block px-4 py-2 text-md hover:bg-gray-100 hover:text-gray-900"
-              onClick={(e) => e.preventDefault()}
+              onClick={handleClick}
             >
               Category 2
             </a>
@@ -76,7 +81,7 @@ const Dropdown = () => {
             <a
               href="#category 3"
               className="block block px-4 py-2 text-md hover:bg-gray-100 hover:text-gray-900"
-              onClick={(e) => e.preventDefault()}
+              onClick={handleClick}
             >
               Category 3
             </a>
