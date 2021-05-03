@@ -7,7 +7,7 @@ import ProjectCategory from '../components/ProjectCategory';
 const Projects = () => {
     return (
         <div>
-            <Dropdown color='white' />
+            <Dropdown />
             <div className="space-y-1">
                 <div className="space-y-20">
                     <CategoryTitle categoryTitle="Categories" categorySubtitle="Please Select a category from the dropdown" />
