@@ -1,38 +1,19 @@
 import React from 'react'
 import VoteProgressBar from '../components/VoteProgressBar';
-import Header from "../components/Header"
+import HorizontalCardList from "../components/HorizontalCardList"
+import CauseCard from '../components/CauseCard';
 
 const Project = () => {
 
-    
-
-    const responsive = {
-        0: { items: 1 },
-        568: { items: 2 },
-        1024: { items: 3 },
-    };
-
-    const items = [
-        <div className="item w-1/3">
-            <img
-                src="images/hands.png" alt="hands"
-            />
-        </div>,
-        <div className="item w-1/3">
-            <img
-                src="images/hands.png" alt="hands"
-            />
-        </div>,
-        <div className="item w-1/3">
-            <img
-                src="images/hands.png" alt="hands"
-            />
-        </div>,
-        
-    ];
-
     const testData = [
-        { completed: 70 },
+        { completed: 0 },
+    ]
+
+    const cards = [
+        <CauseCard />,
+        <CauseCard />,
+        <CauseCard />,
+        <CauseCard />
     ]
 
     return (
@@ -52,15 +33,20 @@ const Project = () => {
                 </div>
             </div>
 
-            <div className="p-10">
-                <h3 className="text-center text-3xl">Vote Progress</h3>
+            <div className="flex items-center flex-row p-10">
                 {testData.map((item, idx) => (
                     <VoteProgressBar
                         key={idx}
                         completed={item.completed}
                     />)
                 )}
+
+                <button className="w-1/6 bg-indigo-600 rounded-full py-5 px-7 items-center">
+                    <h3 className="text-white font-bold text-center">Vote</h3>
+                </button>
             </div>
+
+
 
             <div className="grid gap-4 grid-cols-2 justify-items-center box-border border-4">
                 <div className="flex items-center px-2 py-5">
@@ -75,7 +61,7 @@ const Project = () => {
                 </div>
 
                 <div className="flex items-center px-2 py-5">
-                    <img 
+                    <img
                         className="w-30 h-40"
                         src="images/hands.png"
                         alt="hands"
@@ -94,7 +80,9 @@ const Project = () => {
             </div>
 
             <h3 className="text-center p-10 text-3xl">Supporters</h3>
-            
+            <HorizontalCardList
+                cards={cards}
+            />
         </div>
     )
 }
