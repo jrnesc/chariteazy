@@ -4,7 +4,7 @@ const VoteProgressBar = (props) => {
     const { completed } = props;
 
     const insideBarStyle = {
-        width: `${completed}%`,
+        width: `${completed < 30 ? 30 : completed}%`,
     }
 
     return (
@@ -14,7 +14,7 @@ const VoteProgressBar = (props) => {
                 style={insideBarStyle}
             >
                 <span className="text-white font-bold">
-                    {`${completed}%`}
+                    {`Vote Progress ${completed}%`}
                 </span>
             </div>
         </div>
