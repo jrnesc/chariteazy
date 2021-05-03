@@ -28,8 +28,8 @@ const HorizontalCardList = (props) => {
           </svg>
         </button>
         <div
-          className="grid grid-flow-col gap-2.5 auto-cols-max pb-1 overflow-x-scroll"
-          style={{ scrollBehavior: "smooth", scrollbarWidth: "none" }}
+          className="grid grid-flow-col gap-2.5 auto-cols-max pb-1 overflow-x-scroll no-scrollbar"
+          style={{ scrollBehavior: "smooth" }}
           ref={horizontalCardsEl}
         >
           {props.cards.map((card) => (
