@@ -1,11 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = (props) => {
   return (
     <>
       <nav className="py-4 px-8 bg-blu-light mb-5 md:mb-0">
         <div className="flex items-center justify-between h-14">
-          <img src="images/logo.png" className="h-16 w-16" />
+          <Link to={{ pathname: "/" }}>
+            <img src="images/logo.png" className="h-16 w-16" />
+          </Link>
           <div className="rounded-xl overflow-hidden border border-black bg-white hidden sm:block">
             <ul className="flex items-baseline">
               <li className="py-2 px-5">
