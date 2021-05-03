@@ -10,7 +10,7 @@ const Home = () => {
       >
         <div className="pt-8 md:py-24">
           <h2 className="text-5xl text-center font-extrabold md:text-7xl md:text-left">
-            Charity made
+            Charity made&nbsp;
             <span
               className="bg-contain bg-no-repeat"
               style={{
