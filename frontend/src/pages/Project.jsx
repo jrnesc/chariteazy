@@ -37,7 +37,6 @@ const Project = () => {
 
     return (
         <div>
-            <Header />
             <h1 className="text-center p-10 text-4xl">Specific Project Name</h1>
 
             <div className="grid gap-4 grid-cols-3 justify-items-center box-border border-4">
