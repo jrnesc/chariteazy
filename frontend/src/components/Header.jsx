@@ -19,7 +19,12 @@ const Header = (props) => {
                 </NavLink>
               </li>
               <li className="py-2 px-5">
-                <a>Menu</a>
+                <NavLink
+                  to={{ pathname: "/profile" }}
+                  activeClassName="font-bold text-black"
+                >
+                  Profile
+                </NavLink>
               </li>
               <li className="py-2 px-5">
                 <a>Menu</a>
@@ -46,7 +51,12 @@ const Header = (props) => {
               </NavLink>
             </li>
             <li className="py-2 px-5">
-              <a>Menu</a>
+              <NavLink
+                to={{ pathname: "/profile" }}
+                activeClassName="font-bold text-black"
+              >
+                Profile
+              </NavLink>
             </li>
             <li className="py-2 px-5">
               <a>Menu</a>
