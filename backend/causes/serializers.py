@@ -5,6 +5,6 @@ from .models import Cause
 class CauseSerializer(serializers.ModelSerializer):
 
     class Meta:
-        fields = ('id', 'founder', 'title', 'description',
+        fields = ('id', 'founder', 'title', 'about', 'what_we_do',
                   'vote_count', 'created_at')
         model = Cause
