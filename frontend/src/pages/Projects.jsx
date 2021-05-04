@@ -6,7 +6,7 @@ import ProjectCategory from "../components/ProjectCategory";
 const Projects = () => {
   return (
     <div>
-      <div className="text-center py-12">
+      <div className="py-8 md:py-12 text-center">
         <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
           Categories
         </h2>
