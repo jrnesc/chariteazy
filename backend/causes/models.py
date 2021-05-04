@@ -6,7 +6,8 @@ class Cause(models.Model):
 
     founder = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
-    description = models.TextField()
+    about = models.TextField()
+    what_we_do = models.TextField()
     vote_count = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
 
