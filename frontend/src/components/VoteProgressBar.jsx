@@ -13,11 +13,14 @@ const VoteProgressBar = (props) => {
       style={{ boxShadow: "0 5px 0px 0px black" }}
     >
       <div
-        className="flex flex-col h-full justify-center rounded-r-lg border-r border-black bg-yello text-center "
+        className="flex h-full justify-center items-center rounded-r-lg border-r border-black bg-yello "
         style={insideBarStyle}
       >
+        <span className="text-white font-bold hidden md:block">
+          Vote Progress&nbsp;
+        </span>
         <span className="text-white font-bold">
-          {`Vote Progress ${completed}%`}
+          {`${completed}%`}
         </span>
       </div>
     </div>
