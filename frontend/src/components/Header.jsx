@@ -27,7 +27,7 @@ const Header = (props) => {
             </ul>
           </div>
           <button
-            className="py-2 px-5 bg-yello hover:bg-yellow-500 focus:ring-gray-500 focus:ring-offset-gray-200 text-white transition ease-in duration-200 text-center text-base font-bold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+            className="py-2 px-5 border border-black bg-yello hover:bg-yellow-200 focus:ring-gray-500 focus:ring-offset-gray-200 text-white transition ease-in duration-200 text-center text-base font-bold focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
             onClick={props.onLoginClick}
           >
             Login
