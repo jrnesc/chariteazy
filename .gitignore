@@ -27,3 +27,4 @@ yarn-error.log*
 *.pot
 *.py[cod]
 __pycache__/
+.env/
