@@ -1,95 +1,118 @@
-const PaymentOptions = () => {
+import { useState } from "react";
+
+const PaymentOptionsForm = () => {
+  const [paymentAmount, setpaymentAmount] = useState("");
+  const [autoRenew, setAutoRenew] = useState(false);
+
+  const onPaymentAmountChange = (e) => {
+    setpaymentAmount(e.target.value);
+  };
+
+  const onAutoRenewChange = () => {
+    setAutoRenew(!autoRenew);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
       <h1 className="text-2xl font-extrabold text-black sm:text-4xl relative text-center">
         Change your payment method
       </h1>
-      <form class="grid grid-cols-2 gap-2 w-full max-w-screen-sm">
+      <form
+        className="grid grid-cols-2 gap-2 w-full max-w-screen-sm"
+        onSubmit={handleSubmit}
+      >
         <div>
-          <input
-            class="hidden"
-            id="radio_1"
-            type="radio"
-            name="radio"
-            value="10"
-          />
           <label
-            class="flex flex-col p-4 border-2 border-gray-400 cursor-pointer"
-            for="radio_1"
+            className={`flex flex-col p-4 border-2 border-gray-400 cursor-pointer ${
+              paymentAmount === "1" ? "bg-yello" : ""
+            }`}
           >
-            <span class="text-xl font-bold mt-2">£1/mo</span>
+            <input
+              className="hidden"
+              type="radio"
+              value="1"
+              onClick={onPaymentAmountChange}
+            />
+            <span className="text-xl font-bold mt-2">£1/mo</span>
           </label>
         </div>
         <div>
-          <input
-            class="hidden"
-            id="radio_2"
-            type="radio"
-            name="radio"
-            value="10"
-          />
           <label
-            class="flex flex-col p-4 border-2 border-gray-400 cursor-pointer"
-            for="radio_2"
+            className={`flex flex-col p-4 border-2 border-gray-400 cursor-pointer ${
+              paymentAmount === "5" ? "bg-yello" : ""
+            }`}
           >
-            <span class="text-xl font-bold mt-2">£5/mo</span>
+            <input
+              className="hidden"
+              type="radio"
+              value="5"
+              onClick={onPaymentAmountChange}
+            />
+            <span className="text-xl font-bold mt-2">£5/mo</span>
           </label>
         </div>
         <div>
-          <input
-            class="hidden"
-            id="radio_3"
-            type="radio"
-            name="radio"
-            value="10"
-          />
           <label
-            class="flex flex-col p-4 border-2 border-gray-400 cursor-pointer"
-            for="radio_3"
+            className={`flex flex-col p-4 border-2 border-gray-400 cursor-pointer ${
+              paymentAmount === "10" ? "bg-yello" : ""
+            }`}
           >
-            <span class="text-xl font-bold mt-2">£10/mo</span>
+            <input
+              className="hidden"
+              type="radio"
+              value="10"
+              onClick={onPaymentAmountChange}
+            />
+            <span className="text-xl font-bold mt-2">£10/mo</span>
           </label>
         </div>
         <div>
-          <input
-            class="hidden"
-            id="radio_4"
-            type="radio"
-            name="radio"
-            value="10"
-          />
           <label
-            class="flex flex-col p-4 border-2 border-gray-400 cursor-pointer"
-            for="radio_4"
+            className={`flex flex-col p-4 border-2 border-gray-400 cursor-pointer ${
+              paymentAmount > +"10" ? "bg-yello" : ""
+            }`}
           >
-            <div class="relative flex">
-              <div class="relative inset-y-0 left-0  flex items-center pointer-events-none">
-                <span class="black text-xl font-bold mt-2">£</span>
+            <input
+              className="hidden"
+              type="radio"
+              value="0"
+              onClick={onPaymentAmountChange}
+            />
+            <div className="relative flex">
+              <div className="relative inset-y-0 left-0 flex items-center pointer-events-none">
+                <span className="black text-xl font-bold mt-2">£</span>
               </div>
               <input
                 type="text"
-                name="price"
-                id="price"
-                class=" focus:outline-none relative px-4  block w-full rounded-md text-xl font-bold mt-2"
+                className={`focus:outline-none relative px-4 block w-full rounded-md text-xl font-bold mt-2 ${
+                  paymentAmount > +"10" ? "bg-yello" : ""
+                }`}
                 placeholder="Choose"
+                onChange={onPaymentAmountChange}
               />
-              <div class="relative inset-y-0 flex items-center pointer-events-none">
-                <span class="black text-xl font-bold mt-2">/mo</span>
+              <div className="relative inset-y-0 flex items-center pointer-events-none">
+                <span className="black text-xl font-bold mt-2">/mo</span>
               </div>
             </div>
           </label>
         </div>
-        <div class="flex items-center justify-center w-full col-span-2 bg-yellow-200 py-2 px-2 rounded-xl">
+        <div className="flex items-center justify-center w-full col-span-2 bg-yellow-200 py-2 px-2 rounded-xl">
           <div>
-            <label
-              for="toggle"
-              class="flex items-center cursor-pointer space-x-4"
-            >
-              <div class="ml-3 text-gray-700 font-medium">Auto renew</div>
-              <div class="relative">
-                <input type="checkbox" id="toggle" class="sr-only" />
-                <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
-                <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+            <label className="flex items-center cursor-pointer space-x-4">
+              <div className="ml-3 text-gray-700 font-medium">Auto renew</div>
+              <div className="relative">
+                <input
+                  type="checkbox"
+                  className="sr-only"
+                  checked={autoRenew}
+                  onClick={onAutoRenewChange}
+                />
+                <div className="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                <div className="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
               </div>
             </label>
           </div>
@@ -107,4 +130,4 @@ const PaymentOptions = () => {
   );
 };
 
-export default PaymentOptions;
+export default PaymentOptionsForm;
