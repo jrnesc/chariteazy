@@ -14,10 +14,10 @@ const Profile = () => {
           <SavedProjects />
         </div>
         <div>
-          <ImpactReport />
-        </div>
-        <div>
           <PaymentOptionsForm />
+        </div>
+        <div className="col-span-1 lg:col-span-3">
+          <ImpactReport />
         </div>
       </div>
     </div>
