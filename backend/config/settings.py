@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     # local
     'causes',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -145,10 +146,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SITE_ID = 1
+
+AUTH_USER_MODEL = 'users.CustomUser'
