@@ -6,7 +6,7 @@ const ImpactReport = () => {
       <h1 className="text-2xl font-extrabold text-black sm:text-4xl relative text-center">
         Donation history
       </h1>
-      <div class="flex justify-center rounded-xl w-full p-4 dark:bg-gray-800 relative overflow-hidden">
+      <div className="flex justify-center rounded-xl w-full p-4 dark:bg-gray-800 relative overflow-hidden">
         <DonationRadialChart />
         {/* <div class="flex items-start mb-6 rounded justify-between">
           <span class=" w-10 h-10 rounded-full text-white dark:text-gray-800 bg-yellow-300"></span>

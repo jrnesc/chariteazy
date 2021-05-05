@@ -30,18 +30,6 @@ const SavedProjects = () => {
         <div>
           <SavedProjectCardSmall />
         </div>
-        <div className="row-span-2">
-          <SavedProjectCardLarge />
-        </div>
-        <div>
-          <SavedProjectCardSmall />
-        </div>
-        <div className="row-span-2">
-          <SavedProjectCardLarge />
-        </div>
-        <div>
-          <SavedProjectCardSmall />
-        </div>
       </div>
     </div>
   );

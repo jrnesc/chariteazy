@@ -23,7 +23,7 @@ const PaymentOptionsForm = () => {
   };
 
   return (
-    <div>
+    <div className="py-8">
       <h1 className="text-2xl font-extrabold text-black sm:text-4xl text-center">
         Change your payment method
       </h1>
@@ -113,7 +113,7 @@ const PaymentOptionsForm = () => {
                 onChange={onCustomPaymentAmountChange}
               />
             </div>
-            <span className="mt-2">per month</span>
+            <span className="text-center mt-2">per month</span>
           </label>
         </div>
         <div className="flex items-center col-span-2 bg-yellow-200 p-4 rounded-xl">
