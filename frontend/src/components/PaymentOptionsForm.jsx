@@ -2,10 +2,16 @@ import { useState } from "react";
 
 const PaymentOptionsForm = () => {
   const [paymentAmount, setpaymentAmount] = useState("");
+  const [customPaymentAmount, setCustomPaymentAmount] = useState("");
   const [autoRenew, setAutoRenew] = useState(false);
 
   const onPaymentAmountChange = (e) => {
     setpaymentAmount(e.target.value);
+  };
+
+  const onCustomPaymentAmountChange = (e) => {
+    setCustomPaymentAmount(e.target.value);
+    onPaymentAmountChange(e);
   };
 
   const onAutoRenewChange = () => {
@@ -73,13 +79,13 @@ const PaymentOptionsForm = () => {
         <div>
           <label
             className={`flex flex-col p-4 border-2 border-gray-400 cursor-pointer ${
-              paymentAmount > +"10" ? "bg-yello" : ""
+              !["1", "5", "10"].includes(paymentAmount) ? "bg-yello" : ""
             }`}
           >
             <input
               className="hidden"
               type="radio"
-              value="0"
+              value={customPaymentAmount}
               onClick={onPaymentAmountChange}
             />
             <div className="relative flex">
@@ -88,11 +94,10 @@ const PaymentOptionsForm = () => {
               </div>
               <input
                 type="text"
-                className={`focus:outline-none relative px-4 block w-full rounded-md text-xl font-bold mt-2 ${
-                  paymentAmount > +"10" ? "bg-yello" : ""
-                }`}
+                className="focus:outline-none relative px-4 block w-full rounded-md text-xl font-bold mt-2"
                 placeholder="Choose"
-                onChange={onPaymentAmountChange}
+                style={{ backgroundColor: "inherit" }}
+                onChange={onCustomPaymentAmountChange}
               />
               <div className="relative inset-y-0 flex items-center pointer-events-none">
                 <span className="black text-xl font-bold mt-2">/mo</span>
@@ -109,7 +114,7 @@ const PaymentOptionsForm = () => {
                   type="checkbox"
                   className="sr-only"
                   checked={autoRenew}
-                  onClick={onAutoRenewChange}
+                  onChange={onAutoRenewChange}
                 />
                 <div className="block bg-gray-600 w-14 h-8 rounded-full"></div>
                 <div className="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
