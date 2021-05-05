@@ -18,11 +18,11 @@ class CustomUser(AbstractUser):
 
 class Favourite(models.Model):
     user = models.ForeignKey(
-        CustomUser, related_name="project_memberships", on_delete=models.CASCADE
+        CustomUser, related_name="favourites", on_delete=models.CASCADE
     )
     
     cause = models.ForeignKey(
-        Cause, related_name="project_memberships", on_delete=models.CASCADE
+        Cause, related_name="favourites", on_delete=models.CASCADE
     )
     
     date = models.DateTimeField(auto_now_add=True)
