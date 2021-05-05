@@ -4,6 +4,6 @@ from .views import CauseViewSet
 
 
 router = SimpleRouter()
-router.register('', CauseViewSet, basename='causes')
+router.register(r'causes', CauseViewSet)
 
 urlpatterns = router.urls
