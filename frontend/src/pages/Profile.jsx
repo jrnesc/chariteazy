@@ -5,14 +5,20 @@ import ImpactReport from "../components/ImpactReport";
 
 const Profile = () => {
   return (
-    <div className="-mt-5 md:mt-0">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <UserCard />
-        <div className="row-span-3">
-         <SavedProjects />
+    <div className="mt-0 md:mt-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div>
+          <UserCard />
         </div>
-        <ImpactReport />
-        <PaymentOptionsForm />
+        <div className="col-span-1 lg:col-span-2 row-span-3">
+          <SavedProjects />
+        </div>
+        <div>
+          <ImpactReport />
+        </div>
+        <div>
+          <PaymentOptionsForm />
+        </div>
       </div>
     </div>
   );
