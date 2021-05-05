@@ -1,27 +1,14 @@
-# from django.shortcuts import render
-# from .models import CustomUser
-# from causes.models import Cause
-# from django.shortcuts import get_object_or_404
-# from django.contrib.auth.decorators import login_required
-# from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
+from rest_framework.generics import ListAPIView
+from rest_framework import filters, mixins, viewsets, status
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework import status
 
-# User = get_user_model()
+# import models
+from.models import CustomUser, Favourite
+from causes.models import Cause
 
-# # Create your views here.
+# import serializers
+from .serializers import CustomUserSerializer,FavouriteSerializer
 
-# # @login_required
-# def favourite_list(request):
-#     fList = Cause.favourites.filter(favourites=request.user)
-
-#     return
-
-
-# # @login_required
-# def favourite_add(request, id):
-#     cause = get_object_or_404(Cause, id=id)
-#     # inside favourites, checks if user has already favourited
-#     if cause.favourites.filter(id=request.user.id).exists():
-#         cause.favourites.remove(request.user)
-#     else:
-#         cause.favourites.add(request.user)
-#     return
