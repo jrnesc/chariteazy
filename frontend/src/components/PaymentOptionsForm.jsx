@@ -24,18 +24,19 @@ const PaymentOptionsForm = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-extrabold text-black sm:text-4xl relative text-center">
+      <h1 className="text-2xl font-extrabold text-black sm:text-4xl text-center">
         Change your payment method
       </h1>
       <form
-        className="grid grid-cols-2 gap-2 w-full max-w-screen-sm"
+        className="grid grid-cols-2 gap-4 w-full mt-8"
         onSubmit={handleSubmit}
       >
         <div>
           <label
-            className={`flex flex-col p-4 border-2 border-gray-400 cursor-pointer ${
+            className={`flex flex-col justify-center p-4 bg-white rounded-lg border border-black cursor-pointer ${
               paymentAmount === "1" ? "bg-yello" : ""
             }`}
+            style={{ boxShadow: "0 5px 0px 0px black" }}
           >
             <input
               className="hidden"
@@ -43,14 +44,18 @@ const PaymentOptionsForm = () => {
               value="1"
               onClick={onPaymentAmountChange}
             />
-            <span className="text-xl font-bold mt-2">£1/mo</span>
+            <span className="text-4xl text-center font-extrabold mt-2">£1</span>
+            <span className="text-2xl text-center font-extrabold mt-2">
+              per month
+            </span>
           </label>
         </div>
         <div>
           <label
-            className={`flex flex-col p-4 border-2 border-gray-400 cursor-pointer ${
+            className={`flex flex-col justify-center p-4 bg-white rounded-lg border border-black cursor-pointer ${
               paymentAmount === "5" ? "bg-yello" : ""
             }`}
+            style={{ boxShadow: "0 5px 0px 0px black" }}
           >
             <input
               className="hidden"
@@ -58,14 +63,18 @@ const PaymentOptionsForm = () => {
               value="5"
               onClick={onPaymentAmountChange}
             />
-            <span className="text-xl font-bold mt-2">£5/mo</span>
+            <span className="text-4xl text-center font-extrabold mt-2">£5</span>
+            <span className="text-2xl text-center font-extrabold mt-2">
+              per month
+            </span>
           </label>
         </div>
         <div>
           <label
-            className={`flex flex-col p-4 border-2 border-gray-400 cursor-pointer ${
+            className={`flex flex-col justify-center p-4 bg-white rounded-lg border border-black cursor-pointer ${
               paymentAmount === "10" ? "bg-yello" : ""
             }`}
+            style={{ boxShadow: "0 5px 0px 0px black" }}
           >
             <input
               className="hidden"
@@ -73,14 +82,20 @@ const PaymentOptionsForm = () => {
               value="10"
               onClick={onPaymentAmountChange}
             />
-            <span className="text-xl font-bold mt-2">£10/mo</span>
+            <span className="text-4xl text-center font-extrabold mt-2">
+              £10
+            </span>
+            <span className="text-2xl text-center font-extrabold mt-2">
+              per month
+            </span>
           </label>
         </div>
         <div>
           <label
-            className={`flex flex-col p-4 border-2 border-gray-400 cursor-pointer ${
+            className={`flex flex-wrap justify-center p-4 bg-white rounded-lg border border-black text-2xl font-extrabold cursor-pointer ${
               !["1", "5", "10"].includes(paymentAmount) ? "bg-yello" : ""
             }`}
+            style={{ boxShadow: "0 5px 0px 0px black" }}
           >
             <input
               className="hidden"
@@ -88,39 +103,33 @@ const PaymentOptionsForm = () => {
               value={customPaymentAmount}
               onClick={onPaymentAmountChange}
             />
-            <div className="relative flex">
-              <div className="relative inset-y-0 left-0 flex items-center pointer-events-none">
-                <span className="black text-xl font-bold mt-2">£</span>
-              </div>
+            <div className="flex items-center mt-2 block">
+              <span className="text-4xl">£</span>
               <input
                 type="text"
-                className="focus:outline-none relative px-4 block w-full rounded-md text-xl font-bold mt-2"
-                placeholder="Choose"
+                className="focus:outline-none text-center px-4 block w-full rounded-md text-4xl font-bold custom-payment"
+                placeholder="inp"
                 style={{ backgroundColor: "inherit" }}
                 onChange={onCustomPaymentAmountChange}
               />
-              <div className="relative inset-y-0 flex items-center pointer-events-none">
-                <span className="black text-xl font-bold mt-2">/mo</span>
-              </div>
             </div>
+            <span className="mt-2">per month</span>
           </label>
         </div>
-        <div className="flex items-center justify-center w-full col-span-2 bg-yellow-200 py-2 px-2 rounded-xl">
-          <div>
-            <label className="flex items-center cursor-pointer space-x-4">
-              <div className="ml-3 text-gray-700 font-medium">Auto renew</div>
-              <div className="relative">
-                <input
-                  type="checkbox"
-                  className="sr-only"
-                  checked={autoRenew}
-                  onChange={onAutoRenewChange}
-                />
-                <div className="block bg-gray-600 w-14 h-8 rounded-full"></div>
-                <div className="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
-              </div>
-            </label>
-          </div>
+        <div className="flex items-center col-span-2 bg-yellow-200 p-4 rounded-xl">
+          <label className="flex justify-between w-full items-center cursor-pointer">
+            <div className="text-black font-bold">Auto renew</div>
+            <div className="relative">
+              <input
+                type="checkbox"
+                className="sr-only"
+                checked={autoRenew}
+                onChange={onAutoRenewChange}
+              />
+              <div className="block bg-yello border border-black w-16 h-8 rounded-full"></div>
+              <div className="dot absolute left-0 top-0 border border-black bg-white w-8 h-8 rounded-full transition"></div>
+            </div>
+          </label>
         </div>
         <div className="flex w-full col-span-2">
           <button
