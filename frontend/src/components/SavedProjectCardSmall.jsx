@@ -1,8 +1,8 @@
 const SavedProjectCard = () => {
   return (
-    <div className="rounded-xl border-2 border-black">
-      <h2 className="text-2xl font-extrabold text-black sm:text-4xl relative text-center">
-        DJ Night Hawa
+    <div className="flex items-center rounded-lg border border-black h-full p-4">
+      <h2 className="text-md font-extrabold text-black relative text-center">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
       </h2>
     </div>
   );
