@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 class Cause(models.Model):
     title = models.CharField(max_length=50)
@@ -6,7 +7,7 @@ class Cause(models.Model):
     cause_description = models.TextField()
     image = models.ImageField(default="cause_pics/hands-love.png", upload_to="cause_pics")
     start_date = models.DateTimeField(auto_now_add=True)
-    end_date = models.DateTimeField(blank=True, null=True)
+    end_date = models.DateTimeField(default=datetime.datetime.today() + datetime.timedelta(30))
 
     def __str__(self):
         return self.title
