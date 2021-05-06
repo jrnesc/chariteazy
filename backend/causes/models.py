@@ -22,7 +22,7 @@ class Vote(models.Model):
         unique_together=("user","cause")
 
     def __str__(self):
-        return f"{self.user.username}{self.cause}"
+        return f"{self.user}{self.cause}"
 
 
 

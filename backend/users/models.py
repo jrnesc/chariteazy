@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-from causes.models import Cause
+#from causes.models import Cause
 
 
 
@@ -13,7 +13,7 @@ class CustomUser(AbstractUser):
 
 class Favourite(models.Model):
     user = models.ForeignKey(CustomUser, related_name="favourites", on_delete=models.CASCADE)
-    cause = models.ForeignKey(Cause, related_name="favourites", on_delete=models.CASCADE)
+    cause = models.ForeignKey("causes.Cause", related_name="favourites", on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):

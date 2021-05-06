@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from .models import Favourite, CustomUser
-from causes.serializers import CauseSerializer
+#from causes.serializers import CauseSerializer
 
 
 class CustomUserSerializer(serializers.ModelSerializer):
