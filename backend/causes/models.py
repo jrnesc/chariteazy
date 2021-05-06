@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-import datetime
+from django.core.exceptions import ValidationError
+from datetime import datetime, timedelta
 
 CustomUser = get_user_model()
 
@@ -11,7 +12,7 @@ class Cause(models.Model):
     cause_description = models.TextField()
     image = models.ImageField(default="cause_pics/hands-love.png", upload_to="cause_pics")
     start_date = models.DateTimeField(auto_now_add=True)
-    end_date = models.DateTimeField(default=datetime.datetime.today() + datetime.timedelta(30))
+    end_date = models.DateTimeField(default=datetime.today() + timedelta(30))
 
     def __str__(self):
         return self.title
@@ -22,21 +23,17 @@ class Vote(models.Model):
     cause = models.ForeignKey(Cause, related_name="votes", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    class Meta:
-        unique_together = ("user", "cause")
+    def validate_unique(self, exclude=None):
+        current_month = datetime.now().month
+        user_votes = Vote.objects.filter(user=self.user)
+        user_active_vote = user_votes.filter(created_at__month=current_month)
+        if user_active_vote.exists():
+            cause = user_active_vote[0].cause
+            raise ValidationError(f'You already have an active vote on {cause}!')
+
+    def save(self, *args, **kwargs):
+        self.validate_unique()
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.user}{self.cause}"
-
-
-# def validate_unique(self, exclude=None):
-#         cause = Cause.objects.filter(pk=self.cause.pk)
-#         if cause.filter(user=self.user).exists():
-#             raise ValidationError('Vote already cast')
-
-
-#     def save(self, *args, **kwargs):
-
-#         self.validate_unique()
-
-#         super(Cause, self).save(*args, **kwargs)
