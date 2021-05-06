@@ -1,11 +1,12 @@
 from django.db import IntegrityError
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 
 from .models import Cause, Vote
 from .serializers import CauseSerializer, VoteSerializer
 
 
 class CauseViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.AllowAny]
     queryset = Cause.active_objects.all()
     serializer_class = CauseSerializer
 
