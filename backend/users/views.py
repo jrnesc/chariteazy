@@ -1,27 +1,38 @@
-# from django.shortcuts import render
-# from .models import CustomUser
-# from causes.models import Cause
-# from django.shortcuts import get_object_or_404
-# from django.contrib.auth.decorators import login_required
-# from django.contrib.auth import get_user_model
+from rest_framework import viewsets
 
-# User = get_user_model()
-
-# # Create your views here.
-
-# # @login_required
-# def favourite_list(request):
-#     fList = Cause.favourites.filter(favourites=request.user)
-
-#     return
+# import models
+from .models import CustomUser, Favourite
+from causes.models import Cause, Vote
 
 
-# # @login_required
-# def favourite_add(request, id):
-#     cause = get_object_or_404(Cause, id=id)
-#     # inside favourites, checks if user has already favourited
-#     if cause.favourites.filter(id=request.user.id).exists():
-#         cause.favourites.remove(request.user)
-#     else:
-#         cause.favourites.add(request.user)
-#     return
+# import serializers
+from .serializers import CustomUserSerializer, FavouriteSerializer
+from causes.serializers import VoteSerializer
+
+class FavouriteViewSet(viewsets.ModelViewSet):
+    queryset = Favourite.objects.all()
+    serializer_class = FavouriteSerializer
+
+    def get_queryset(self):
+        favourites = Favourite.objects.filter(user=self.kwargs["user_pk"])
+        return favourites
+
+    def perform_create(self, serializer):
+        cause = serializer.validated_data["cause"]
+        print(serializer.validated_data["cause"])
+        serializer.save(user=self.request.user, cause=cause)
+
+
+class CustomUserViewSet(viewsets.ModelViewSet):
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer
+
+
+class UserVoteViewSet(viewsets.ModelViewSet):
+    serializer_class = VoteSerializer
+    queryset = Vote.objects.all()
+
+    def get_queryset(self):
+        votes = Vote.objects.filter(user=self.request.user)
+        print(votes)
+        return votes
