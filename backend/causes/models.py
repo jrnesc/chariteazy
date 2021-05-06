@@ -8,6 +8,9 @@ class ActiveCausesManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(approved=True, end_date__gt=timezone.now() )
 
+def get_end_date():
+    return timezone.now() + timezone.timedelta(days=30)
+
 class Cause(models.Model):
     title = models.CharField(max_length=50)
     owner_email = models.EmailField(null=True, blank=True)
@@ -15,7 +18,7 @@ class Cause(models.Model):
     cause_description = models.TextField()
     image = models.ImageField(default="cause_pics/hands-love.png", upload_to="cause_pics")
     start_date = models.DateTimeField(auto_now_add=True)
-    end_date = models.DateTimeField(default=timezone.now() + timezone.timedelta(days=30))
+    end_date = models.DateTimeField(default=get_end_date)
     approved = models.BooleanField(default=False)
     objects = models.Manager()
     active_objects = ActiveCausesManager()
