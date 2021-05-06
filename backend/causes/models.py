@@ -1,10 +1,12 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
-from datetime import datetime, timedelta
-
+from django.utils import timezone 
 CustomUser = get_user_model()
 
+class ActiveCausesManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(approved=True, end_date__gt=timezone.now() )
 
 class Cause(models.Model):
     title = models.CharField(max_length=50)
@@ -13,8 +15,10 @@ class Cause(models.Model):
     cause_description = models.TextField()
     image = models.ImageField(default="cause_pics/hands-love.png", upload_to="cause_pics")
     start_date = models.DateTimeField(auto_now_add=True)
-    end_date = models.DateTimeField(default=datetime.today() + timedelta(30))
+    end_date = models.DateTimeField(default=timezone.now().day + timezone.timedelta(days=30)
     approved = models.BooleanField(default=False)
+    objects = models.Manager()
+    active_objects = ActiveCausesManager()
 
     def __str__(self):
         return self.title
@@ -26,7 +30,7 @@ class Vote(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def validate_unique(self):
-        current_month = datetime.now().month
+        current_month = timezone.now().month
         user_votes = Vote.objects.filter(user=self.user)
         user_active_vote = user_votes.filter(created_at__month=current_month)
         if user_active_vote.exists():

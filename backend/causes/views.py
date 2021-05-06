@@ -6,7 +6,7 @@ from .serializers import CauseSerializer, VoteSerializer
 
 
 class CauseViewSet(viewsets.ModelViewSet):
-    queryset = Cause.objects.all()
+    queryset = Cause.active_objects.all()
     serializer_class = CauseSerializer
 
 
@@ -15,7 +15,7 @@ class VoteViewSet(viewsets.ModelViewSet):
     queryset = Vote.objects.all()
 
     def get_queryset(self):
-        cause = Cause.objects.get(pk=self.kwargs["cause_pk"])
+        cause = Cause.active_objects.get(pk=self.kwargs["cause_pk"])
         votes = Vote.objects.filter(cause=cause)
         return votes
 
