@@ -8,8 +8,10 @@ class ActiveCausesManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(approved=True, end_date__gt=timezone.now() )
 
-def get_end_date():
-    return timezone.now() + timezone.timedelta(days=30)
+def get_cause_end_date():
+    date = timezone.now()
+    return (date.replace(day=1) + timezone.timedelta(days=32)).replace(day=1)
+    # return timezone.now() + timezone.timedelta(days=30)
 
 class Cause(models.Model):
     title = models.CharField(max_length=50)
@@ -17,8 +19,8 @@ class Cause(models.Model):
     owner_description = models.TextField()
     cause_description = models.TextField()
     image = models.ImageField(default="cause_pics/hands-love.png", upload_to="cause_pics")
-    start_date = models.DateTimeField(auto_now_add=True)
-    end_date = models.DateTimeField(default=get_end_date)
+    start_date = models.DateTimeField(auto_now_add=True) # TODO: User can put their start date in, or it defaults to current -> should be updated when project is approved?
+    end_date = models.DateTimeField(default=get_cause_end_date)
     approved = models.BooleanField(default=False)
     objects = models.Manager()
     active_objects = ActiveCausesManager()
@@ -30,8 +32,10 @@ class Cause(models.Model):
 class Vote(models.Model):
     user = models.ForeignKey(CustomUser, related_name="votes", on_delete=models.CASCADE)
     cause = models.ForeignKey(Cause, related_name="votes", on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-
+    creation_date = models.DateTimeField(auto_now_add=True)
+    # expiry_date = 
+    
+    
     def validate_unique(self):
         current_month = timezone.now().month
         user_votes = Vote.objects.filter(user=self.user)
