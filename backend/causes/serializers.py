@@ -10,8 +10,6 @@ class VoteSerializer(serializers.ModelSerializer):
         fields = ('id','user','created_at',)
 
 class CauseSerializer(serializers.ModelSerializer):
-    votes = VoteSerializer(many=True)
     class Meta:
         model = Cause
-        fields = ('id', 'title', 'organisation_info', 'cause_description','image',
-                  'start_date', 'end_date','votes')
+        fields = '__all__'

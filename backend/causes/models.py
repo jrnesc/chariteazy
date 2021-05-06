@@ -8,11 +8,13 @@ CustomUser = get_user_model()
 
 class Cause(models.Model):
     title = models.CharField(max_length=50)
-    organisation_info = models.TextField()
+    owner_email = models.EmailField(null=True, blank=True)
+    owner_description = models.TextField()
     cause_description = models.TextField()
     image = models.ImageField(default="cause_pics/hands-love.png", upload_to="cause_pics")
     start_date = models.DateTimeField(auto_now_add=True)
     end_date = models.DateTimeField(default=datetime.today() + timedelta(30))
+    approved = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -23,7 +25,7 @@ class Vote(models.Model):
     cause = models.ForeignKey(Cause, related_name="votes", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def validate_unique(self, exclude=None):
+    def validate_unique(self):
         current_month = datetime.now().month
         user_votes = Vote.objects.filter(user=self.user)
         user_active_vote = user_votes.filter(created_at__month=current_month)
