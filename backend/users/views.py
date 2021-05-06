@@ -2,11 +2,12 @@ from rest_framework import viewsets
 
 # import models
 from .models import CustomUser, Favourite
-from causes.models import Cause
+from causes.models import Cause, Vote
+
 
 # import serializers
 from .serializers import CustomUserSerializer, FavouriteSerializer
-
+from causes.serializers import VoteSerializer
 
 class FavouriteViewSet(viewsets.ModelViewSet):
     queryset = Favourite.objects.all()
@@ -25,3 +26,13 @@ class FavouriteViewSet(viewsets.ModelViewSet):
 class CustomUserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
+
+
+class UserVoteViewSet(viewsets.ModelViewSet):
+    serializer_class = VoteSerializer
+    queryset = Vote.objects.all()
+
+    def get_queryset(self):
+        votes = Vote.objects.filter(user=self.request.user)
+        print(votes)
+        return votes

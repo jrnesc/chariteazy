@@ -4,14 +4,15 @@ from django.core.exceptions import ValidationError
 from django.utils import timezone 
 CustomUser = get_user_model()
 
+def get_cause_end_date():
+    date = timezone.now()
+    return (date.replace(day=1) + timezone.timedelta(days=32)).replace(day=1)  # return start of the next month 
+
+
 class ActiveCausesManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(approved=True, end_date__gt=timezone.now() )
 
-def get_cause_end_date():
-    date = timezone.now()
-    return (date.replace(day=1) + timezone.timedelta(days=32)).replace(day=1)
-    # return timezone.now() + timezone.timedelta(days=30)
 
 class Cause(models.Model):
     title = models.CharField(max_length=50)
@@ -32,14 +33,12 @@ class Cause(models.Model):
 class Vote(models.Model):
     user = models.ForeignKey(CustomUser, related_name="votes", on_delete=models.CASCADE)
     cause = models.ForeignKey(Cause, related_name="votes", on_delete=models.CASCADE)
-    creation_date = models.DateTimeField(auto_now_add=True)
-    # expiry_date = 
+    creation_date = models.DateTimeField(default = timezone.now) #auto_now_add=True
     
-    
-    def validate_unique(self):
+    def validate_unique(self,**kwargs):
         current_month = timezone.now().month
         user_votes = Vote.objects.filter(user=self.user)
-        user_active_vote = user_votes.filter(created_at__month=current_month)
+        user_active_vote = user_votes.filter(creation_date__month=current_month)
         if user_active_vote.exists():
             cause = user_active_vote[0].cause
             raise ValidationError(f'You already have an active vote on {cause}!')

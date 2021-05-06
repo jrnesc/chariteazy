@@ -3,9 +3,9 @@ from .views import CauseViewSet, VoteViewSet
 
 
 router = routers.SimpleRouter()
-router.register('', CauseViewSet, basename="causes")
+router.register('', CauseViewSet, basename="cause")
 
 votes_router = routers.NestedSimpleRouter(router, '', lookup='cause')
-votes_router.register('votes', VoteViewSet, basename="votes")
+votes_router.register('votes', VoteViewSet, basename="cause-votes")
 
 urlpatterns = router.urls + votes_router.urls
