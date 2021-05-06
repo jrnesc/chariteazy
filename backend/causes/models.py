@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import CustomUser
 import datetime
 
 class Cause(models.Model):
@@ -11,3 +12,28 @@ class Cause(models.Model):
 
     def __str__(self):
         return self.title
+
+class Vote(models.Model):
+    user = models.ForeignKey(CustomUser, related_name="votes", on_delete=models.CASCADE)
+    cause = models.ForeignKey(Cause, related_name="votes", on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        unique_together=("user","cause")
+
+    def __str__(self):
+        return f"{self.user.username}{self.cause}"
+
+
+
+# def validate_unique(self, exclude=None):
+#         cause = Cause.objects.filter(pk=self.cause.pk)
+#         if cause.filter(user=self.user).exists():
+#             raise ValidationError('Vote already cast')
+
+
+#     def save(self, *args, **kwargs):
+
+#         self.validate_unique()
+
+#         super(Cause, self).save(*args, **kwargs)

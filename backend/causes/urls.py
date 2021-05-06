@@ -1,9 +1,11 @@
-from django.urls import path
-from rest_framework.routers import SimpleRouter
-from .views import CauseViewSet
+from rest_framework_nested import routers
+from .views import CauseViewSet, VoteViewSet
 
 
-router = SimpleRouter()
-router.register('', CauseViewSet)
+router = routers.SimpleRouter()
+router.register('', CauseViewSet, basename="causes")
 
-urlpatterns = router.urls
+votes_router = routers.NestedSimpleRouter(router, '', lookup='cause')
+votes_router.register('votes', VoteViewSet, basename="votes")
+
+urlpatterns = router.urls + votes_router.urls
