@@ -15,7 +15,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"username\":\"userna\",\"password1\":\"password123!\",\"password2\":\"password123!\",\"email\":\"shashi13@ail.com\"}",
+					"raw": "{\"username\":\"user123\",\"password1\":\"password123!\",\"password2\":\"password123!\",\"email\":\"user@user.com\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -56,7 +56,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"username\":\"usernamsdfsdfsfe\",\"password\":\"password123!\"}",
+					"raw": "{\"username\":\"user123\",\"password\":\"password123!\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -77,6 +77,88 @@
 						"api",
 						"v1",
 						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "0581dddcd20d19dc09b43ebbadb906ac45156dd3",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"user123\",\"password\":\"password123!\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "causes",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer b34e879da447bd920d5c400ff59fb741e8a327ff",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"test2\",\r\n    \"cause_description\": \"a\",\r\n    \"owner_description\":\"hello\",\r\n    \"owner_email\":\"owner@owner.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/causes/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"causes",
 						""
 					]
 				}
@@ -121,47 +203,6 @@
 						"api",
 						"v1",
 						"causes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "causes",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer b34e879da447bd920d5c400ff59fb741e8a327ff",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"test\",\r\n    \"organisation_info\": \"a\",\r\n    \"cause_description\": \"a\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/causes/",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"v1",
-						"causes",
-						""
 					]
 				}
 			},
@@ -303,6 +344,49 @@
 		},
 		{
 			"name": "favourites",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer b34e879da447bd920d5c400ff59fb741e8a327ff",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"cause\":1}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/users/1/favourites/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1",
+						"favourites",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "favourites",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -318,7 +402,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"cause2\",\r\n    \"organisation_info\": \"a\",\r\n    \"cause_description\": \"a\"\r\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -326,7 +410,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/users/2/favourites/",
+					"raw": "http://127.0.0.1:8000/api/v1/users/1/favourites/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -339,50 +423,7 @@
 						"api",
 						"v1",
 						"users",
-						"2",
-						"favourites",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "favourites",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer b34e879da447bd920d5c400ff59fb741e8a327ff",
-						"type": "text",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"cause\":1,\"user\":1}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/users/2/favourites/",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "8000",
-					"path": [
-						"api",
-						"v1",
-						"users",
-						"2",
+						"1",
 						"favourites",
 						""
 					]
@@ -412,7 +453,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/v1/causes/2/votes/",
+					"raw": "http://127.0.0.1:8000/api/v1/causes/1/votes/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -425,7 +466,7 @@
 						"api",
 						"v1",
 						"causes",
-						"2",
+						"1",
 						"votes",
 						""
 					]
@@ -434,7 +475,7 @@
 			"response": []
 		},
 		{
-			"name": "votes",
+			"name": "cause votes",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -478,18 +519,54 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "user votes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer b34e879da447bd920d5c400ff59fb741e8a327ff",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/users/1/votes/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1",
+						"votes",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	],
-	"auth": {
-		"type": "bearer",
-		"bearer": [
-			{
-				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjIwMzQxMTMwLCJqdGkiOiI1MTE5YTM0MDNhZWI0OTI2YWU3ZWU0OTMyMzEwNGI3ZSIsInVzZXJfaWQiOjN9.FlVUcllXKOEjU-w1K16X1KMF0czXkht5iT1dsK0sl9k",
-				"type": "string"
-			}
-		]
-	},
 	"event": [
 		{
 			"listen": "prerequest",
@@ -508,12 +585,6 @@
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"key": "token",
-			"value": "0581dddcd20d19dc09b43ebbadb906ac45156dd3"
 		}
 	]
 }
