@@ -1,11 +1,11 @@
 import React, { useState, createRef } from "react";
 import { createPopper } from "@popperjs/core";
 
-const Dropdown = () => {
+const Dropdown = (props) => {
   const [dropdownPopoverShow, setDropdownPopoverShow] = useState(false);
   const btnDropdownRef = createRef();
   const popoverDropdownRef = createRef();
-  
+
   const openDropdownPopover = () => {
     createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
       placement: "bottom-start",
@@ -17,10 +17,10 @@ const Dropdown = () => {
     setDropdownPopoverShow(false);
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e, category) => {
     e.preventDefault();
-    console.log("click");
-  }
+    props.onSelect(category);
+  };
 
   return (
     <>
@@ -63,25 +63,22 @@ const Dropdown = () => {
             style={{ minWidth: "11.4rem" }}
           >
             <a
-              href="#category1"
-              className="block block px-4 py-2 text-md hover:bg-gray-100 hover:text-gray-900"
-              onClick={handleClick}
+              className="block block px-4 py-2 text-md cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+              onClick={(e) => {handleClick(e, "Category 1")}}
             >
               Category 1
             </a>
             <div className="h-0 my-2 border border-solid border-t-0 border-black opacity-25" />
             <a
-              href="#category2"
-              className="block block px-4 py-2 text-md hover:bg-gray-100 hover:text-gray-900"
-              onClick={handleClick}
+              className="block block px-4 py-2 text-md cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+              onClick={(e) => {handleClick(e, "Category 2")}}
             >
               Category 2
             </a>
             <div className="h-0 my-2 border border-solid border-t-0 border-black opacity-25" />
             <a
-              href="#category 3"
-              className="block block px-4 py-2 text-md hover:bg-gray-100 hover:text-gray-900"
-              onClick={handleClick}
+              className="block block px-4 py-2 text-md cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+              onClick={(e) => {handleClick(e, "Category 3")}}
             >
               Category 3
             </a>

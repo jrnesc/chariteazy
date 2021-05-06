@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import CauseCard from "../components/CauseCard";
 import Dropdown from "../components/Dropdown";
 import ProjectCategory from "../components/ProjectCategory";
 
 const Projects = () => {
+  const [selectedCategory, setSelectedCategory] = useState('');
+
+  const handleDropdownSelect = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <div>
       <div className="py-8 md:py-12 text-center">
@@ -14,7 +20,7 @@ const Projects = () => {
           Please select a category from the dropdown.
         </p>
       </div>
-      <Dropdown />
+      <Dropdown onSelect={handleDropdownSelect} />
       <div className="py-12">
         <ProjectCategory title="Most Popular" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
