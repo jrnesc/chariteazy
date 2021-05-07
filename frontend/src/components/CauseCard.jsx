@@ -10,7 +10,7 @@ const CauseCard = (props) => {
         className="h-25 w-full object-cover border-b border-black"
       />
       <div className="bg-white w-full p-4">
-        <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
+        <h2 className="text-2xl font-extrabold text-black">
           {props.cause.title}
         </h2>
         <p className="flex items-center text-gray-400 font-light text-md">

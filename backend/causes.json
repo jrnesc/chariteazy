@@ -171,7 +171,7 @@
     "model": "causes.Cause",
     "pk": 13,
     "fields": {
-      "title": "Committee Against Domestic Abuse, Inc- CADA",
+      "title": "CADA",
       "owner_description": "CADA's mission is to provide safety and support to victims of domestic and sexual violence through education, advocacy, and shelter. CADA is a nonprofit organization that serves a nine-county region in south central Minnesota.",
       "owner_email": "owner@email.com",
       "cause_description": "To provide safety and support to victims of domestic and sexual violence through education, advocacy and shelter.",
@@ -232,7 +232,7 @@
       "owner_email": "owner@email.com",
       "cause_description": "Focused on the engagement, education and empowerment of girls and women.",
       "image": "cause_pics/hands-love.png",
-      "start_date": "2021-05-01T10:00:00Z",
+      "start_date": "2021-05-03T10:00:00Z",
       "end_date": "2021-06-01T10:00:00Z",
       "approved": true
     }
@@ -246,7 +246,7 @@
       "owner_email": "owner@email.com",
       "cause_description": "Revolutionizing students' lives with hands-on STEM and Entrepreneurship",
       "image": "cause_pics/hands-love.png",
-      "start_date": "2021-05-01T10:00:00Z",
+      "start_date": "2021-05-05T10:00:00Z",
       "end_date": "2021-06-01T10:00:00Z",
       "approved": true
     }
@@ -260,7 +260,7 @@
       "owner_email": "owner@email.com",
       "cause_description": "Applying evolutionary science to pressing social issues - improving global quality of life.",
       "image": "cause_pics/hands-love.png",
-      "start_date": "2021-05-01T10:00:00Z",
+      "start_date": "2021-05-07T10:00:00Z",
       "end_date": "2021-06-01T10:00:00Z",
       "approved": true
     }
@@ -269,12 +269,12 @@
     "model": "causes.Cause",
     "pk": 20,
     "fields": {
-      "title": "Machine Intelligence Research Institute",
+      "title": "MIRI",
       "owner_description": "The Machine Intelligence Research Institute is a research nonprofit studying the mathematical underpinnings of intelligent behavior. Our mission is to develop formal tools for the clean design and analysis of general-purpose AI systems, with the intent of making such systems safer and more reliable when they are developed.The field of AI has a reputation for overselling its progress. In the “AI winters” of the late 1970s and 1980s, researchers’ failures to make good on ambitious promises led to a collapse of funding and interest in AI. Although the field is now undergoing a renaissance, overconfidence is still a major fear; discussion of the possibility of human-equivalent general intelligence is still largely relegated to the science fiction shelf. At the same time, researchers largely agree that AI is likely to begin outperforming humans on most cognitive",
       "owner_email": "owner@email.com",
       "cause_description": "We do foundational mathematical research to ensure smarter-than-human artificial intelligence has a positive impact.",
       "image": "cause_pics/hands-love.png",
-      "start_date": "2021-05-01T10:00:00Z",
+      "start_date": "2021-05-07T10:00:00Z",
       "end_date": "2021-06-01T10:00:00Z",
       "approved": true
     }
@@ -288,7 +288,7 @@
       "owner_email": "owner@email.com",
       "cause_description": "The Museum of Science Fiction will be the world’s first comprehensive science fiction museum, covering the history of the genre across the arts.",
       "image": "cause_pics/hands-love.png",
-      "start_date": "2021-05-01T10:00:00Z",
+      "start_date": "2021-05-08T10:00:00Z",
       "end_date": "2021-06-01T10:00:00Z",
       "approved": true
     }
