@@ -12,9 +12,6 @@ const SavedProjects = ({user}) => {
       const savedCausesFromServer = await fetchSavedCauses();
       setSavedCauses(savedCausesFromServer);
     };
-    console.log(user)
-    console.log(user['pk'])
-    // console.log(user.pk)
 
     getSavedCauses();
   }, []);
@@ -23,7 +20,6 @@ const SavedProjects = ({user}) => {
     // fetch causes
     const fetchSavedCauses = async () => {
       const user_id = user['pk']
-      console.log(user_id)
       const requestOptions = {
         method: "GET",
         credentials:'include',
@@ -47,6 +43,7 @@ const SavedProjects = ({user}) => {
           </Link>
 
         ))}
+        {savedCauses.length ===0 && <p>Nothing saved yet</p>}
         {/* <div className="row-span-2">
           <SavedProjectCardLarge />
         </div>
