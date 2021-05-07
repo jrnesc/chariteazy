@@ -1,6 +1,9 @@
-const CauseCard = () => {
+const CauseCard = (props) => {
   return (
-    <div className="overflow-hidden rounded-lg border border-black cursor-pointer m-auto" style={{boxShadow: "0 5px 0px 0px black"}}>
+    <div
+      className="overflow-hidden rounded-lg border border-black cursor-pointer m-auto"
+      style={{ boxShadow: "0 5px 0px 0px black" }}
+    >
       <img
         alt="photo"
         src="./images/kente-cloth.jpeg"
@@ -8,7 +11,7 @@ const CauseCard = () => {
       />
       <div className="bg-white w-full p-4">
         <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
-          DJ Night Hawa
+          {props.cause.title}
         </h2>
         <p className="flex items-center text-gray-400 font-light text-md">
           <span className="mr-2">
@@ -52,7 +55,7 @@ const CauseCard = () => {
               />
             </svg>
           </span>
-          <span> 12 March 2020 </span>
+          <span> {props.cause.end_date} </span>
         </p>
       </div>
     </div>
