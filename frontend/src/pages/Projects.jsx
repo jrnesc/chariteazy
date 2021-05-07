@@ -3,8 +3,8 @@ import CauseCard from "../components/CauseCard";
 import Dropdown from "../components/Dropdown";
 import ProjectCategory from "../components/ProjectCategory";
 
-const Projects = () => {
-  const [selectedCategory, setSelectedCategory] = useState('');
+const Projects = (props) => {
+  const [selectedCategory, setSelectedCategory] = useState("All Causes");
 
   const handleDropdownSelect = (category) => {
     setSelectedCategory(category);
@@ -22,33 +22,12 @@ const Projects = () => {
       </div>
       <Dropdown onSelect={handleDropdownSelect} />
       <div className="py-12">
-        <ProjectCategory title="Most Popular" />
+        <ProjectCategory title={selectedCategory} />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
-          <CauseCard />
-          <CauseCard />
-          <CauseCard />
-        </div>
-      </div>
-      <div className="py-12">
-        <ProjectCategory title="Most Recent" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
-          <CauseCard />
-          <CauseCard />
-          <CauseCard />
-        </div>
-      </div>
-      <div className="py-12">
-        <ProjectCategory title="All Causes" />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
-          <CauseCard />
-          <CauseCard />
-          <CauseCard />
-          <CauseCard />
-          <CauseCard />
-          <CauseCard />
-          <CauseCard />
-          <CauseCard />
-          <CauseCard />
+          {selectedCategory === "Most Popular" && <div>Most Popular!</div>}
+          {selectedCategory === "Most Popular" && <div>Most Popular!</div>}
+          {selectedCategory === "All Causes" && <div>All Causes!</div>}
+          {/* props.causes.map((cause, index) => <CauseCard cause={cause} />) */}
         </div>
       </div>
     </div>
