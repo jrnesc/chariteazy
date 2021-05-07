@@ -51,7 +51,7 @@ function App() {
         <div className="container mx-auto mb-auto px-10">
           <Switch>
             <Route exact path="/">
-              <Home causes={causes} />
+              <Home onSignupClick={openModal} causes={causes} />
             </Route>
             <Route exact path="/about">
               <About />
