@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import getAuthToken from'../helpers.js'
 
 const PaymentOptionsForm = ({userAccount}) => {
   const [paymentAmount, setpaymentAmount] = useState("");
-  const [newPaymentAmount, setNewPaymentAmount] = useState(userAccount.donation_amount);
+  const [newPaymentAmount, setNewPaymentAmount] = useState(0);
   const [customPaymentAmount, setCustomPaymentAmount] = useState("");
   const [autoRenew, setAutoRenew] = useState(false);
+
+
+  useEffect(() => {
+    console.log(userAccount.donation_amount)
+    setNewPaymentAmount(userAccount.donation_amount)
+  }, []);
+
 
   const onPaymentAmountChange = (e) => {
     setpaymentAmount(e.target.value);
@@ -23,14 +30,18 @@ const PaymentOptionsForm = ({userAccount}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(newPaymentAmount)
+    
     setNewPaymentAmount(paymentAmount)
+    console.log(newPaymentAmount)
+    console.log(userAccount.id)
     const requestOptions = {
       method: "PATCH",
       credentials:'include',
       headers: { "Content-Type": "application/json", "Authorization":getAuthToken() },
       body : {"donation_amount":paymentAmount}
     };
-    const res = await fetch(`http://127.0.0.1:8000/api/v1/users/${userAccount.id}/favourites/`, requestOptions);
+    const res = await fetch(`http://127.0.0.1:8000/api/v1/users/${userAccount.id}/`, requestOptions);
     const data = await res.json();
     return data;
 
