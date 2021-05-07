@@ -68,7 +68,7 @@ const Home = (props) => {
               <p className="m-auto text-xl text-white font-bold">1</p>
             </div>
             <h3 className="text-2xl text-center font-bold">
-              Find a cause you would like your monthly donation to support
+              Find a cause 
             </h3>
             <p className="text-md text-center text-gray-400">
               Choose from our cherry picked local causes, to find something that
@@ -89,7 +89,7 @@ const Home = (props) => {
             <div className="flex mx-auto rounded-full bg-teel w-14 h-14 my-5">
               <p className="m-auto text-xl text-white font-bold">3</p>
             </div>
-            <h3 className="text-2xl text-center font-bold">See your change making change</h3>
+            <h3 className="text-2xl text-center font-bold">Make a change</h3>
             <p className="text-md text-center text-gray-400">
               See your donations accumulate with other to maximise the impact and make real change. Its as eazy as that!
             </p>

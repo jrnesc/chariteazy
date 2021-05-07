@@ -25,9 +25,10 @@ const Header = (props) => {
                 >
                   Profile
                 </NavLink>
+                {/* TODO: add about page and make this a NavLink in navbar */}
               </li>
               <li className="py-2 px-5">
-                <a>Menu</a>
+                <a>About us</a>
               </li>
             </ul>
           </div>
