@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const LoginForm = ({ onRegisterClick, onClose }) => {
+const LoginForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,6 +14,8 @@ const LoginForm = ({ onRegisterClick, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    props.onFormSubmit(username, password);
+    e.target.reset(); 
   };
 
   return (
@@ -85,7 +87,7 @@ const LoginForm = ({ onRegisterClick, onClose }) => {
       <div className="flex items-center mt-6">
         <button
           className="inline-flex items-center text-xs font-thin text-gray-500 hover:text-gray-700"
-          onClick={onRegisterClick}
+          onClick={props.onRegisterClick}
         >
           <span className="ml-2">Don&#x27;t have an account?</span>
         </button>

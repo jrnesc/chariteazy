@@ -16,16 +16,20 @@ const customStyles = {
   },
 };
 
-const AccountModal = ({ IsOpen, onClose }) => {
+const AccountModal = (props) => {
   const [active, setActive] = useState("login");
 
   return (
-    <Modal isOpen={IsOpen} onRequestClose={onClose} style={customStyles}>
+    <Modal
+      isOpen={props.IsOpen}
+      onRequestClose={props.onClose}
+      style={customStyles}
+    >
       <div className="absolute right-4 top-4">
         <button
           className="bg-transparent border border-black rounded-full p-1"
           style={{ boxShadow: "0 1px 0px 0px black" }}
-          onClick={onClose}
+          onClick={props.onClose}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -46,14 +50,11 @@ const AccountModal = ({ IsOpen, onClose }) => {
       {active === "login" && (
         <LoginForm
           onRegisterClick={() => setActive("register")}
-          onClose={onClose}
+          onFormSubmit={props.onLoginFormSubmit}
         />
       )}
       {active === "register" && (
-        <SignupForm
-          onLoginClick={() => setActive("login")}
-          onClose={onClose}
-        />
+        <SignupForm onLoginClick={() => setActive("login")} />
       )}
     </Modal>
   );

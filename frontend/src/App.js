@@ -8,10 +8,12 @@ import Project from "./pages/Project";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AccountModal from "./components/AccountModal";
+import { login, logout } from "./services/user.service";
 import "./index.css";
 
 function App() {
   const [IsOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState({});
   const [causes, setCauses] = useState([]);
 
   useEffect(() => {
@@ -31,6 +33,17 @@ function App() {
     setIsOpen(false);
   };
 
+  const handleLoginFormSubmit = async (username, password) => {
+    const data = await login(username, password);
+    setUser(data["user"]);
+    setIsOpen(!IsOpen);
+  };
+
+  const handleLogoutClick = () => {
+    logout();
+    setUser({});
+  };
+
   // fetch causes
   const fetchCauses = async () => {
     const requestOptions = {
@@ -47,7 +60,11 @@ function App() {
     <Router>
       <div className="flex flex-col h-screen">
         <Header onLoginClick={openModal} />
-        <AccountModal IsOpen={IsOpen} onClose={closeModal} />
+        <AccountModal
+          IsOpen={IsOpen}
+          onClose={closeModal}
+          onLoginFormSubmit={handleLoginFormSubmit}
+        />
         <div className="container mx-auto mb-auto px-10">
           <Switch>
             <Route exact path="/">
