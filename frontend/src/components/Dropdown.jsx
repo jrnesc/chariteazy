@@ -20,6 +20,7 @@ const Dropdown = (props) => {
   const handleClick = (e, category) => {
     e.preventDefault();
     props.onSelect(category);
+    closeDropdownPopover();
   };
 
   return (
@@ -62,26 +63,26 @@ const Dropdown = (props) => {
             }
             style={{ minWidth: "11.4rem" }}
           >
-            <a
-              className="block block px-4 py-2 text-md cursor-pointer hover:bg-gray-100 hover:text-gray-900"
-              onClick={(e) => {handleClick(e, "Category 1")}}
+            <button
+              className="w-full px-4 py-2 text-md cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+              onClick={(e) => {handleClick(e, "Most Recent")}}
             >
-              Category 1
-            </a>
+              Most Recent
+            </button>
             <div className="h-0 my-2 border border-solid border-t-0 border-black opacity-25" />
-            <a
-              className="block block px-4 py-2 text-md cursor-pointer hover:bg-gray-100 hover:text-gray-900"
-              onClick={(e) => {handleClick(e, "Category 2")}}
+            <button
+              className="w-full px-4 py-2 text-md cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+              onClick={(e) => {handleClick(e, "Most Popular")}}
             >
-              Category 2
-            </a>
+              Most Popular
+            </button>
             <div className="h-0 my-2 border border-solid border-t-0 border-black opacity-25" />
-            <a
-              className="block block px-4 py-2 text-md cursor-pointer hover:bg-gray-100 hover:text-gray-900"
-              onClick={(e) => {handleClick(e, "Category 3")}}
+            <button
+              className="w-full px-4 py-2 text-md cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+              onClick={(e) => {handleClick(e, "All Causes")}}
             >
-              Category 3
-            </a>
+              All Causes
+            </button>
           </div>
         </div>
       </div>
