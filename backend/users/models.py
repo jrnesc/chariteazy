@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
-    # donationAmount = models.OneToOneField()
+    donation_amount = models.FloatField(default=0)
     # paymentMethod = models.OneToOneField()
     def __str__(self):
         return self.username

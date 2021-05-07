@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const PaymentOptionsForm = () => {
+const PaymentOptionsForm = ({userAccount}) => {
   const [paymentAmount, setpaymentAmount] = useState("");
   const [customPaymentAmount, setCustomPaymentAmount] = useState("");
   const [autoRenew, setAutoRenew] = useState(false);
@@ -27,6 +27,7 @@ const PaymentOptionsForm = () => {
       <h1 className="text-2xl font-extrabold text-black sm:text-4xl text-center">
         Change your payment method
       </h1>
+      <p>Current amount : {userAccount.donation_amount}</p>
       <form
         className="grid grid-cols-2 gap-4 w-full mt-8"
         onSubmit={handleSubmit}

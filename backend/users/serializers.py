@@ -8,7 +8,7 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ["id","username", "first_name", "last_name", "email", "date_joined"]
+        fields = ["id","username", "first_name", "last_name", "email", "date_joined","donation_amount"]
 
 
 class FavouriteSerializer(serializers.ModelSerializer):  

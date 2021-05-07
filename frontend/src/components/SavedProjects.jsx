@@ -23,6 +23,7 @@ const SavedProjects = ({user}) => {
     // fetch causes
     const fetchSavedCauses = async () => {
       const user_id = user['pk']
+      console.log(user_id)
       const requestOptions = {
         method: "GET",
         credentials:'include',
@@ -33,7 +34,6 @@ const SavedProjects = ({user}) => {
       // console.log(getAuthToken())
       const res = await fetch(`http://127.0.0.1:8000/api/v1/users/${user_id}/favourites/`, requestOptions);
       const data = await res.json();
-  
       return data;
     };
 
