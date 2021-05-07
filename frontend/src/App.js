@@ -11,6 +11,7 @@ import AccountModal from "./components/AccountModal";
 import { login, logout } from "./services/user.service";
 import "./index.css";
 
+
 function App() {
   const [IsOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({});
@@ -37,6 +38,8 @@ function App() {
     const data = await login(username, password);
     setUser(data["user"]);
     setIsOpen(!IsOpen);
+
+   
   };
 
   const handleLogoutClick = () => {
@@ -46,9 +49,12 @@ function App() {
 
   // fetch causes
   const fetchCauses = async () => {
+    
     const requestOptions = {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      credentials:'include',
+      headers: { "Content-Type": "application/json", },
+     
     };
     const res = await fetch(`http://127.0.0.1:8000/api/v1/causes`, requestOptions);
     const data = await res.json();
