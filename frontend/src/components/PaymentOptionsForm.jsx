@@ -1,12 +1,15 @@
 import { useState } from "react";
+import getAuthToken from'../helpers.js'
 
 const PaymentOptionsForm = ({userAccount}) => {
   const [paymentAmount, setpaymentAmount] = useState("");
+  const [newPaymentAmount, setNewPaymentAmount] = useState(userAccount.donation_amount);
   const [customPaymentAmount, setCustomPaymentAmount] = useState("");
   const [autoRenew, setAutoRenew] = useState(false);
 
   const onPaymentAmountChange = (e) => {
     setpaymentAmount(e.target.value);
+
   };
 
   const onCustomPaymentAmountChange = (e) => {
@@ -18,8 +21,20 @@ const PaymentOptionsForm = ({userAccount}) => {
     setAutoRenew(!autoRenew);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setNewPaymentAmount(paymentAmount)
+    const requestOptions = {
+      method: "PATCH",
+      credentials:'include',
+      headers: { "Content-Type": "application/json", "Authorization":getAuthToken() },
+      body : {"donation_amount":paymentAmount}
+    };
+    const res = await fetch(`http://127.0.0.1:8000/api/v1/users/${userAccount.id}/favourites/`, requestOptions);
+    const data = await res.json();
+    return data;
+
+
   };
 
   return (
@@ -27,7 +42,7 @@ const PaymentOptionsForm = ({userAccount}) => {
       <h1 className="text-2xl font-extrabold text-black sm:text-4xl text-center">
         Change your payment method
       </h1>
-      <p>Current amount : {userAccount.donation_amount}</p>
+      <p>Current amount : {newPaymentAmount}</p>
       <form
         className="grid grid-cols-2 gap-4 w-full mt-8"
         onSubmit={handleSubmit}
