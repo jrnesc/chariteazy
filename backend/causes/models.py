@@ -25,6 +25,9 @@ class Cause(models.Model):
     approved = models.BooleanField(default=False)
     objects = models.Manager()
     active_objects = ActiveCausesManager()
+    
+    class Meta:
+        ordering = ('title', )
 
     def get_vote_count(self):
         return self.votes.count()
