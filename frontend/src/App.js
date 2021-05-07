@@ -37,7 +37,15 @@ function App() {
 
   const handleLoginFormSubmit = async (username, password) => {
     const data = await login(username, password);
-    setUser(data["user"]);
+    // console.log(data['user'])
+    const userData = data['user']
+    setUser(userData);
+    console.log(user)
+    // console.log(user.username)
+    // console.log(user.pk)
+    // console.log(user.pk)
+    
+    // console.log(user)
     setIsOpen(!IsOpen);
 
    
@@ -81,7 +89,7 @@ function App() {
               <About />
             </Route> */}
             <Route exact path="/profile">
-              <Profile />
+              <Profile user={user} />
             </Route>
             <Route exact path="/projects">
               <Projects causes={causes} />

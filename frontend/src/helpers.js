@@ -5,7 +5,7 @@ const cookies = new Cookies();
 const getAuthToken = () => {
     cookies.getAll()
     const token = cookies.cookies['my-app-auth']
-    return  `Bearer ${token}`
+    return `Bearer ${token}`
   }
 
   export default getAuthToken

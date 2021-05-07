@@ -1,4 +1,4 @@
-const UserCard = () => {
+const UserCard = ({user}) => {
   return (
     <div className="rounded-lg bg-yello border border-black p-1">
       <div className="flex flex-col items-center">
@@ -10,8 +10,8 @@ const UserCard = () => {
           />
         </div>
         <div className="text-center my-4">
-          <h1 className="font-bold text-4xl">John Johnnington</h1>
-          <p className="text-xl">@johnnnyboy</p>
+          <h1 className="font-bold text-4xl">{user.first_name} {user.last_name}</h1>
+          <p className="text-xl">{user.username}</p>
         </div>
       </div>
       <div className="flex justify-center my-4">
