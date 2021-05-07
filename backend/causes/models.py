@@ -26,6 +26,9 @@ class Cause(models.Model):
     objects = models.Manager()
     active_objects = ActiveCausesManager()
 
+    def get_vote_count(self):
+        return self.votes.count()
+
     def __str__(self):
         return self.title
 
@@ -48,4 +51,4 @@ class Vote(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.user}{self.cause}"
+        return f"{self.user} - {self.cause}"
