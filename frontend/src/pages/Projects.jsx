@@ -7,7 +7,7 @@ import ProjectCategory from "../components/ProjectCategory";
 const Projects = (props) => {
   const [selectedCategory, setSelectedCategory] = useState("All Causes");
 
-  const mostRecent = [...props.causes].sort((a, b) => a.start_date - b.start_date);
+  const mostRecent = [...props.causes].sort((a, b) => Date.parse(a.start_date) - Date.parse(b.start_date));
   const mostPopular = [...props.causes].sort((a, b) => b.get_vote_count - a.get_vote_count);
 
   const handleDropdownSelect = (category) => {

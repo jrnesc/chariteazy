@@ -55,7 +55,7 @@ const CauseCard = (props) => {
               />
             </svg>
           </span>
-          <span> {props.cause.end_date} </span>
+          <span> {props.cause.end_date.slice(0, 10)} </span>
         </p>
       </div>
     </div>
