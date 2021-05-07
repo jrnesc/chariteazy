@@ -8,7 +8,7 @@ class VoteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Vote
-        fields = ("id", "user", "creation_date")
+        fields = ("id", "user", "cause","creation_date")
 
 
 class CauseSerializer(serializers.ModelSerializer):

@@ -34,5 +34,4 @@ class UserVoteViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         votes = Vote.objects.filter(user=self.request.user)
-        print(votes)
         return votes

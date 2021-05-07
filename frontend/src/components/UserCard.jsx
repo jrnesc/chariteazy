@@ -54,13 +54,7 @@ const UserCard = ({user}) => {
         </div>
         <div className="mr-4 p-3 text-center">
           <span className="text-xl font-bold block">
-            62
-          </span>
-          <span className="text-sm">Causes</span>
-        </div>
-        <div className="mr-4 p-3 text-center">
-          <span className="text-xl font-bold block">
-            £275
+            £5
           </span>
           <span className="text-sm">Donated</span>
         </div>
