@@ -37,13 +37,13 @@ const SavedProjects = ({user}) => {
     <div className="py-8">
       <h1 className="text-4xl font-extrabold text-black text-center">Saved Projects</h1>
       <div className="grid grid-cols-2 gap-4 mt-8">
-        {savedCauses.map((cause,index) => (
+        {savedCauses.length>1 ? savedCauses.map((cause,index) => (
           <Link to={{ pathname: "/project/" + cause.id }}>
             <SavedProjectCardLarge key={index} cause={cause} />
           </Link>
 
-        ))}
-        {savedCauses.length ===0 && <p>Nothing saved yet</p>}
+        )): <p>Nothing saved yet!</p>}
+
         {/* <div className="row-span-2">
           <SavedProjectCardLarge />
         </div>
