@@ -30,19 +30,19 @@ const Projects = (props) => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
           {selectedCategory === "Most Recent" &&
             mostRecent.map((cause, index) => (
-              <Link to={{ pathname: "/project/" + cause.id }}>
+              <Link to={{ pathname: "/project/" + 1 }}>
                 <CauseCard key={index} cause={cause} />
               </Link>
             ))}
           {selectedCategory === "Most Popular" &&
             mostPopular.map((cause, index) => (
-              <Link to={{ pathname: "/project/" + cause.id }}>
+              <Link to={{ pathname: "/project/" + 1 }}>
                 <CauseCard key={index} cause={cause} />
               </Link>
             ))}
           {selectedCategory === "All Causes" &&
             props.causes.map((cause, index) => (
-              <Link to={{ pathname: "/project/" + cause.id }}>
+              <Link to={{ pathname: "/project/" + 1 }}>
                 <CauseCard key={index} cause={cause} />
               </Link>
             ))}

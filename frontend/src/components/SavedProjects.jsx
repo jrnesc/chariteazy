@@ -42,7 +42,7 @@ const SavedProjects = ({user}) => {
             <SavedProjectCardLarge key={index} cause={cause} />
           </Link>
 
-        )): <p>Nothing saved yet!</p>}
+        )): <div className="flex col-span-2 items-center justify-center"><p className="text-center">Nothing saved yet!</p></div>}
 
         {/* <div className="row-span-2">
           <SavedProjectCardLarge />

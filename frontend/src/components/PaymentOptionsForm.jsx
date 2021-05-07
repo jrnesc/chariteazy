@@ -2,17 +2,9 @@ import { useState, useEffect } from "react";
 import getAuthToken from'../helpers.js'
 
 const PaymentOptionsForm = ({userAccount}) => {
-  const [paymentAmount, setpaymentAmount] = useState("");
-  const [newPaymentAmount, setNewPaymentAmount] = useState(0);
+  const [paymentAmount, setpaymentAmount] = useState("5");
   const [customPaymentAmount, setCustomPaymentAmount] = useState("");
   const [autoRenew, setAutoRenew] = useState(false);
-
-
-  useEffect(() => {
-    console.log(userAccount.donation_amount)
-    setNewPaymentAmount(userAccount.donation_amount)
-  }, []);
-
 
   const onPaymentAmountChange = (e) => {
     setpaymentAmount(e.target.value);
@@ -30,22 +22,6 @@ const PaymentOptionsForm = ({userAccount}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newPaymentAmount)
-    
-    setNewPaymentAmount(paymentAmount)
-    console.log(newPaymentAmount)
-    console.log(userAccount.id)
-    const requestOptions = {
-      method: "PATCH",
-      credentials:'include',
-      headers: { "Content-Type": "application/json", "Authorization":getAuthToken() },
-      body : {"donation_amount":paymentAmount}
-    };
-    const res = await fetch(`http://127.0.0.1:8000/api/v1/users/${userAccount.id}/`, requestOptions);
-    const data = await res.json();
-    return data;
-
-
   };
 
   return (
@@ -53,7 +29,6 @@ const PaymentOptionsForm = ({userAccount}) => {
       <h1 className="text-2xl font-extrabold text-black sm:text-4xl text-center">
         Change your payment method
       </h1>
-      <p>Current amount : {newPaymentAmount}</p>
       <form
         className="grid grid-cols-2 gap-4 w-full mt-8"
         onSubmit={handleSubmit}
