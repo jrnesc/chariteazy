@@ -28,7 +28,7 @@ const Dropdown = (props) => {
       <div className="flex justify-end">
         <div className="relative inline-flex">
           <button
-            className="relative inline-block text-lg py-2 pl-2 pr-12 rounded border border-black rounded-lg focus:outline-none"
+            className="relative inline-block w-44 text-lg py-2 pl-2 pr-12 rounded border border-black rounded-lg focus:outline-none"
             type="button"
             ref={btnDropdownRef}
             onClick={() => {
@@ -37,7 +37,7 @@ const Dropdown = (props) => {
                 : openDropdownPopover();
             }}
           >
-            Select category
+            {props.selectedCategory}
             <span className="absolute block h-full w-8 top-0 right-0 rounded-r-lg bg-yello ml-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

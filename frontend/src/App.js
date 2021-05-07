@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Projects from "./pages/Projects";
 import Project from "./pages/Project";
+import SubmitProject from "./pages/SubmitProject";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AccountModal from "./components/AccountModal";
@@ -81,6 +82,9 @@ function App() {
             </Route>
             <Route exact path="/project">
               <Project />
+            </Route>
+            <Route exact path="/submitcause">
+              <SubmitProject />
             </Route>
           </Switch>
         </div>
