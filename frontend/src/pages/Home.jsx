@@ -67,30 +67,31 @@ const Home = (props) => {
             <div className="flex mx-auto rounded-full bg-teel w-14 h-14 my-5">
               <p className="m-auto text-xl text-white font-bold">1</p>
             </div>
-            <h3 className="text-2xl text-center font-bold">Title</h3>
+            <h3 className="text-2xl text-center font-bold">
+              Find a cause you would like your monthly donation to support
+            </h3>
             <p className="text-md text-center text-gray-400">
-              Donate alongside others to multiply your impact. Over one million
-              registered causes.
+              Choose from our cherry picked local causes, to find something that
+              you would like to support. We select causes that we trust and
+              believe in, so that your donations will be used correctly
             </p>
           </div>
           <div>
             <div className="flex mx-auto rounded-full bg-teel w-14 h-14 my-5">
               <p className="m-auto text-xl text-white font-bold">2</p>
             </div>
-            <h3 className="text-2xl text-center font-bold">Title</h3>
+            <h3 className="text-2xl text-center font-bold">Cast your vote</h3>
             <p className="text-md text-center text-gray-400">
-              Donate alongside others to multiply your impact. Over one million
-              registered causes.
+              We split the year into monthly voting rounds. Each round you get one vote. At the end of each round, we allocate the funds based on the distribution of votes
             </p>
           </div>
           <div>
             <div className="flex mx-auto rounded-full bg-teel w-14 h-14 my-5">
               <p className="m-auto text-xl text-white font-bold">3</p>
             </div>
-            <h3 className="text-2xl text-center font-bold">Title</h3>
+            <h3 className="text-2xl text-center font-bold">See your change making change</h3>
             <p className="text-md text-center text-gray-400">
-              Donate alongside others to multiply your impact. Over one million
-              registered causes.
+              See your donations accumulate with other to maximise the impact and make real change. Its as eazy as that!
             </p>
           </div>
         </div>

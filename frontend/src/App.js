@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
+// import About from "./pages/About";
 import Profile from "./pages/Profile";
 import Projects from "./pages/Projects";
 import Project from "./pages/Project";
@@ -70,9 +70,9 @@ function App() {
             <Route exact path="/">
               <Home onSignupClick={openModal} causes={causes} />
             </Route>
-            <Route exact path="/about">
+            {/* <Route exact path="/about">
               <About />
-            </Route>
+            </Route> */}
             <Route exact path="/profile">
               <Profile />
             </Route>
