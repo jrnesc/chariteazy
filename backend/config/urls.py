@@ -27,6 +27,7 @@ urlpatterns = [
     path("api/token/refresh/", jwt_views.TokenRefreshView.as_view(), name="token_refresh"),
     path("api/v1/causes/", include("causes.urls")),
     path("api/v1/users/", include("users.urls")),
+    path("api/v1/payments/", include("payments.urls")),
 ]
 
 if settings.DEBUG:
