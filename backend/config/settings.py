@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     # local
     'causes',
     'users',
+    'payments',
 ]
 
 MIDDLEWARE = [
