@@ -1,14 +1,31 @@
-import { useState, useEffect } from "react";
-import getAuthToken from'../helpers.js'
+import { useState } from "react";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
-const PaymentOptionsForm = ({userAccount}) => {
+const prices = {
+  1: "price_1IxWwOAzUg24CpHQ3VZSuPbx",
+  5: "price_1IxWy5AzUg24CpHQTatmjLKz",
+  10: "price_1IxWyBAzUg24CpHQBtnCF0eZ",
+};
+
+const PaymentOptionsForm = ({ user }) => {
   const [paymentAmount, setpaymentAmount] = useState("5");
   const [customPaymentAmount, setCustomPaymentAmount] = useState("");
   const [autoRenew, setAutoRenew] = useState(false);
+  const [error, setError] = useState(null);
+
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const onCardChange = (e) => {
+    if (e.error) {
+      setError(e.error.message);
+    } else {
+      setError(null);
+    }
+  };
 
   const onPaymentAmountChange = (e) => {
     setpaymentAmount(e.target.value);
-
   };
 
   const onCustomPaymentAmountChange = (e) => {
@@ -22,6 +39,13 @@ const PaymentOptionsForm = ({userAccount}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const card = elements.getElement(CardElement);
+    const { paymentMethod, error } = await stripe.createPaymentMethod({
+      type: "card",
+      card: card,
+    });
+    const priceId = prices[paymentAmount];
+    createSubscription(paymentMethod.id, priceId);  // this will make a request to the backend
   };
 
   return (
@@ -33,6 +57,10 @@ const PaymentOptionsForm = ({userAccount}) => {
         className="grid grid-cols-2 gap-4 w-full mt-8"
         onSubmit={handleSubmit}
       >
+        <div className="col-span-2">
+          <CardElement onChange={onCardChange} />
+          <div role="alert">{error}</div>
+        </div>
         <div>
           <label
             className={`flex flex-col justify-center p-4 bg-white rounded-lg border border-black cursor-pointer ${
