@@ -1,7 +1,14 @@
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js/pure";
 import UserCard from "../components/UserCard";
 import SavedProjects from "../components/SavedProjects";
 import PaymentOptionsForm from "../components/PaymentOptionsForm";
 import ImpactReport from "../components/ImpactReport";
+
+
+const stripePromise = loadStripe(
+  "pk_test_51IwuOvAzUg24CpHQ5CUi3imiQrXbzl7gZfDeOF7q2M9KuqjoQ8WpaBoXCMC7bm1oiBVJXKXeUwYr0KCbza23l3Y300ZkRUC8jL"
+);
 
 const Profile = ({ user }) => {
   return (
@@ -14,7 +21,9 @@ const Profile = ({ user }) => {
           <SavedProjects user={user} />
         </div>
         <div>
-          <PaymentOptionsForm user={user} />
+          <Elements stripe={stripePromise}>
+            <PaymentOptionsForm user={user} />
+          </Elements>
         </div>
         <div className="col-span-1 lg:col-span-3">
           <ImpactReport />
