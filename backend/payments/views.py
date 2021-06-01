@@ -24,15 +24,16 @@ class TestPaymentView(views.APIView):
 
 class CreateSubscriptionView(views.APIView):
     def post(self, request):
+        customer_id = request.user.customer.id
         # attach the payment method to the customer
         payment_method = stripe.PaymentMethod.attach(
             request.data["paymentMethodId"],
-            customer=request.user.customer,
+            customer=customer_id,
         )
         djstripe_models.PaymentMethod.sync_from_stripe_data(payment_method)
         # set the default payment method on the customer
         customer = stripe.Customer.modify(
-            request.user.customer,
+            customer_id,
             invoice_settings={
                 "default_payment_method": request.data["paymentMethodId"],
             },
@@ -40,7 +41,7 @@ class CreateSubscriptionView(views.APIView):
         djstripe_models.Customer.sync_from_stripe_data(customer)
         # create the subscription
         subscription = stripe.Subscription.create(
-            customer=request.user.customer,
+            customer=customer_id,
             items=[{"price": request.data["priceId"]}],
             expand=["latest_invoice.payment_intent"],
         )
