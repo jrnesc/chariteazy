@@ -3,10 +3,8 @@ from django.contrib.auth.models import AbstractUser
 
 
 class CustomUser(AbstractUser):
-    donation_amount = models.FloatField(default=0)
-    # paymentMethod = models.OneToOneField()
-    def __str__(self):
-        return self.username
+    customer = models.ForeignKey('djstripe.Customer', null=True, blank=True, on_delete=models.SET_NULL)
+    subscription = models.ForeignKey('djstripe.Subscription', null=True, blank=True, on_delete=models.SET_NULL)
 
 
 class Favourite(models.Model):
