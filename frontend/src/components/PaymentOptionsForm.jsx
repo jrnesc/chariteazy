@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import getAuthToken from "../helpers.js";
 
 const prices = {
-  1: "price_1IxWwOAzUg24CpHQ3VZSuPbx",
-  5: "price_1IxWy5AzUg24CpHQTatmjLKz",
-  10: "price_1IxWyBAzUg24CpHQBtnCF0eZ",
+  "1": "price_1IxWwOAzUg24CpHQ3VZSuPbx",
+  "5": "price_1IxWy5AzUg24CpHQTatmjLKz",
+  "10": "price_1IxWyBAzUg24CpHQBtnCF0eZ",
 };
 
 const PaymentOptionsForm = ({ user }) => {
@@ -45,7 +46,21 @@ const PaymentOptionsForm = ({ user }) => {
       card: card,
     });
     const priceId = prices[paymentAmount];
-    createSubscription(paymentMethod.id, priceId);  // this will make a request to the backend
+    createSubscription(paymentMethod.id, priceId);
+  };
+
+  const createSubscription = async (paymentMethodId, priceId) => {
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": getAuthToken(),
+      },
+      body: JSON.stringify({ paymentMethodId, priceId }),
+    };
+    const res = await fetch(`http://127.0.0.1:8000/api/v1/payments/create-subscription/`, requestOptions);
+    const data = await res.json();
+    return data;
   };
 
   return (
